@@ -33,9 +33,10 @@ config/initializers/secret_token.rb
 /config/*.yml
 /spec
 /features
-Rakefile
 /sphinx
 /config/development.sphinx.conf
 /config/test.sphinx.conf
 /bin
 /script
+/db/sphinx
+/config/deploy.rb
