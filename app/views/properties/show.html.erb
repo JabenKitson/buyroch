@@ -1,0 +1,102 @@
+<script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>
+<script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
+
+<div class='row mt44'>
+	<div class='large-12 small-12 columns'>
+		<div id='siteContent'>
+
+			<div class='row'>
+
+									<div class='columns large-12 small-12 mb22'>
+						<div class="page-title">
+							<div class="section-title"><span class="flag"><img class='retina' width='18' height='18' src='<%=asset_path "home.png"%>' alt='Icon'></span><h2><%=@property.title%></h2></div>						</div>
+					</div>
+				
+								<div id='propertyPrintButton'>
+								<script>var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 0;var pfDisablePrint = 0;var pfCustomCSS = '';var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();</script><a href="http://www.printfriendly.com" style="color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img style="border:none;" src="http://cdn.printfriendly.com/button-print-gry20.png" alt="Print Friendly and PDF"/></a>
+				</div>
+				
+
+
+				<div id='siteMain' class='large-8 small-12 columns'>
+					<div class="property type-property status-publish hentry layout-property">
+
+			
+<div style="">
+<img src="<%=@property.photo.url%>" title='r1' alt='r1' />
+</div>
+	<div id='post-slider'>
+				<div id="property-slider" class="flexslider">
+			<ul class="slides">
+									<li>
+						<img src="<%=@property.photo.url%>" title='r1' alt='r1' />
+					</li>
+					<li>
+						<img src="<%=@property
+.photo.url%>" title='r1' alt='r1' />
+					</li>
+					<li>
+						<img src="<%=@property
+.photo.url%>" title='r1' alt='r1' />
+					</li>
+							</ul>
+		</div>
+
+				<div id="property-carousel" class="flexslider carousel">
+			<ul class="slides">
+									<li>
+						<img src="<%=@property.photo.url(:medium)%>" title='r1' />
+					</li>
+									<li>
+						<img src="<%=@property.photo.url(:medium)%>" title='r1' />
+					</li>
+									<li>
+						<img src="<%=@property.photo.url(:medium)%>" title='r1' />
+					</li>
+							</ul>
+		</div>
+			</div>
+
+<div class='content'>
+	<div>
+<h3>Highlights</h3>
+<ul>
+<li><img alt="" src="http://s.lnimg.com/images/profile/transparentArrow.gif" /></li>
+</ul>
+</div>
+<div>
+<h3>Description</h3>
+<p><%=@property.description%></p>
+</div>
+</div>
+
+
+</div>				</div>
+
+				<div id='siteSidebar' class='small-12 large-4 columns ' style ="margin-top: -500px">
+					<div class="widget-container"><div id="bshagentcontactwidget-2" class="widget widget_bshagentcontactwidget"><div class="agent-title"><h1 class="widget-title">Property Agent</h1></div><header><img alt='' src='<%=current_user.avatar.url(:thumb)%>' class='avatar avatar-80 photo' height='80' width='80' /><div class="agent-details"><h1 class="agent-name"><a href="/">Bucky Beeman</a></h1><div class="agent-position">RGI - Commercial Realtor</div><ul class="contact m22"><li class="phoneNumber"><span class="icon"><img alt="Phone Icon" src="<%=asset_path 'iphone.png'%>"></span> <a href="tel:(507)951-7130">(507) 951-7130</a></li><li class="email"><span class="icon"><img alt="Envelope Icon" src="<%=asset_path 'envelope.png'%>"></span> <a href="mailto:buckybeeman@me.com">buckybeeman@me.com</a></li></ul></div></header><div class="social"><a class="twitter socialIcon" href="http://twitter.com/buckybeeman"></a><a class="facebook socialIcon" href="https://www.facebook.com/buckybeeman"></a></div><div class="end"></div></div></div><div class="widget-container"><div id="bshmapwidget-3" class="widget widget_bshmapwidget"><h1 class="widget-title">Property Map</h1>
+
+
+	<div id="map" class='map-canvas' style='width:100%;height:250px'></div>
+	
+
+
+	<div class="end"></div></div></div><div class="widget-container"><div id="bshpropertycontactwidget-2" class="widget widget_bshpropertycontactwidget">
+
+		<div class="end"></div></div></div>				</div>
+			</div>
+		</div>
+	</div>
+</div> 
+
+<script>
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+  handler.getMap().setZoom(12);
+});
+</script>
+
+

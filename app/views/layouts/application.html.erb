@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+	<html class="no-js lt-ie9 " lang="en">
+<![endif]-->
+<!--[if gt IE 8]><!--> <html class="nojs " lang="en-US"> <!--<![endif]-->
+
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<link rel="author" href="/humans.txt" />
+
+			<link rel="shortcut icon" type="image/x-icon" href="<%=asset_path 'buy1.jpg'%>">
+	
+			<link rel="apple-touch-icon" href="<%= asset_path 'apple-touch-icon.png'%>"/>
+	
+	<title></title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+
+	<!--[if lt IE 9]>
+	<script src="<%=asset_path 'vendor/respond.min.js'%>" type="text/javascript"></script>
+	<script src="<%=asset_path 'vendor/html5.js'%>" type="text/javascript"></script>
+	<![endif]-->
+
+
+
+</head>
+<body class="home page page-id-17 page-template page-template-template-bshMapPage-php custom-background">
+<div id="fb-root"></div>
+    
+<div id='siteHeader' class=''>
+
+	<div class='row'>
+		<div class='large-12 small-12 columns'>
+
+			<!-- Header Logo -->
+
+
+			<div id='headerLogo'>
+				<a href='<%=root_path%>'><img  src='<%= asset_path "buy.jpg"%>' class='retina' alt='Logo For %s' data-retina='<%= asset_path "logo@2x.png"%>'></a>
+				<hgroup style="display:none">
+					<h1><a href='<%=root_path%>'>Buy Rochester</a></h1>
+					<h2><a href='<%=root_path%>'>BuyRochester</a></h2>
+				</hgroup>
+			</div>
+
+			<!-- End Header Logo -->
+
+			<div id='headerContent'>
+			<%= render 'layouts/contact_panel' %>
+			</div> <!-- End Header Content -->
+
+			<!-- Header Menu -->
+
+			<div id='headerMenu'>
+			<%= render 'layouts/navigation' %>
+			</div>
+
+			<!-- End Header Menu -->
+
+
+		</div> <!-- columns -->
+
+	</div> <!-- row -->
+
+</div> <!-- End siteHeader -->
+<%= render 'layouts/messages' %>
+<%= yield %>
+
+
+	<div id='siteFooter'>
+		<div class='row'>
+						</div>
+	</div>
+
+	<div id='footerBar'>
+		<div class='row'>
+			<div class='small-12 large-12 columns'>
+				<div id='footerMenu'>
+				<div class="menu-container"><ul class="menu"><li class="menu-item page-item-2"><a href="/home/about">About BuyRochester</a></li><li class="menu-item page-item-8"><a href="/home/commercial">Let&#8217;s Get Commercial</a></li><li class="menu-item page-item-17 current-menu-item"><a href="<%=root_path%>">Map</a></li></ul></div>
+				</div>
+				<div id='footerText'>
+					Powered By <a href="http://www.saharafox.com">SAHARAFOX MARKETING</a>				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<div id='searchContainer'>
+  <form id='map-page-form' class="custom form-search" action="/search" method="GET">
+  <div id='main-search'>
+    <input type='submit' class='submit-search button-search' value='GO!'>
+    <input type="text" name="query" class='main-search-field' value="<%= params[:query]%>" placeholder='Location, Options, Keywords?'>  </div>
+				<div id='advanced-search' style="display:none">
+
+					
+					<div class='row form-row' >
+						<div class='large-4 small-12 columns'>
+														<label for="$detail" class='offset'>Distance</label>
+						</div>
+
+						<div class='large-8 small-12 columns' >
+													    <select id="radiusSelect">
+													     </select>
+						</div>
+					</div>
+
+						
+							
+	<div class='estSearch vertical_twocol'>
+			<div class='row form-row'>
+			<div class='large-4 small-12 columns'>
+				<label for="_est_meta_property_area" class='offset'>
+					Property Area				</label>
+			</div>
+			<div class='large-8 small-12 columns'>
+						
+			<select id="_est_meta_property_area" class="medium" name='_est_meta_property_area'>
+				<option value="">Any</option><option  value="5000">5.000 acres</option><option  value="54,443">54 acres</option>			</select>
+
+						</div>
+		</div>
+				<div class='row form-row'>
+			<div class='large-4 small-12 columns'>
+				<label for="_est_meta_price" class='offset'>
+					Price				</label>
+			</div>
+			<div class='large-8 small-12 columns'>
+					<p data-id='_est_meta_price' class='mb0 range-values'><span class='min'><span class="est_value price-1"><span class="unit">$</span><span class="value">1.500.000</span></span></span> - <span class='max'><span class="est_value price-1"><span class="unit">$</span><span class="value">1.500.000</span></span></span></p>
+	<div class='range-container'>
+	<div id='_est_meta_price' class='range on' data-name='_est_meta_price' data-min="1500000" data-max='1500000' data-value_min='' data-value_max=''></div>
+	</div>
+			</div>
+		</div>
+				<div class='row form-row'>
+			<div class='large-4 small-12 columns'>
+				<label for="property_category" class='offset'>
+					Property Categories				</label>
+			</div>
+			<div class='large-8 small-12 columns'>
+									<select id="property_category" class="medium" name='property_category'>
+				<option value="">All</option> <option  value="2">Commercial</option>			</select>
+						</div>
+		</div>
+				<div class='row form-row'>
+			<div class='large-4 small-12 columns'>
+				<label for="property_type" class='offset'>
+					Property Types				</label>
+			</div>
+			<div class='large-8 small-12 columns'>
+									<select id="property_type" class="medium" name='property_type'>
+				<option value="">All</option> <option  value="3">Rental Space</option>			</select>
+						</div>
+		</div>
+			</div>
+	
+
+						
+
+				</div>
+
+
+				<div class='row'>
+					<div class='large-12 small-12 columns'>
+						<span id='advanced-search-switch' data-open_text='Minimized Search' data-closed_text='Advanced Search' style='display:none'>
+							Advanced Search						</span>
+					</div>
+				</div>
+  </form>
+</div>
+
+<script type="javascript">
+$(function() {
+  $('span#advanced-search-switch').click({
+    $('div#advanced-search').toggle();
+  });
+}); 
+</script>

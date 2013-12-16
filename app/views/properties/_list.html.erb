@@ -1,0 +1,49 @@
+
+			<div class='row'>
+				<div id='siteMain' class='large-12 small-12 columns'>
+
+
+				
+				<div class='content mb22 mt22'>
+								</div>
+
+				<div class='property-list'>
+<% @properties.each do |p| %>
+<!-- PROPERTY -->
+					<div class="property type-property status-publish hentry layout-property-list">
+
+	<div class='row'>
+					<div class='large-6 small-12 columns'>
+				<div class='post-image'>
+					<a href='/properties/<%=p.id.to_s%>' class='hoverlink hide-for-small'>
+						<img width="284" height="188" src=" <%= p.photo.url(:medium)%>" class="attachment-est_card wp-post-image" alt="r1" />					</a>
+					<a href='/properties/<%=p.id.to_s%>' class='hoverlink show-for-small mb11'>
+						<img width="627" height="188" src=" <%= p.photo.url(:medium)%>" class="attachment-est_card_wide wp-post-image" alt="r1" />					</a>
+				</div>
+			</div>
+		
+		<div class='large-6 small-12 columns'>
+			<hgroup>
+				<h1><a href='/properties/<%=p.id.to_s%>'><%=p.title%></a></h1>
+									<h2 class='light'><span class="est_value city-r"><span class="value">rochester</span></span>, <span class="est_value state-M"><span class="value">Minnesota</span></span></h2>
+							</hgroup>
+
+				<table class="detail-table ">
+		<tbody>
+			</tbody>
+	</table>
+	
+		</div>
+
+	</div>
+
+
+</div>
+<% end %>
+<!-- END PROPERTY -->
+
+
+</div><div class="pagination"></div>					</div>
+				</div>
+							</div>
+		
