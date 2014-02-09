@@ -1,4 +1,13 @@
 class PropertiesController < ApplicationController
+
+  def loopnet
+      @property = Property.find(params[:id])
+      @id = params[:id]
+      @status = @property.loopnet(current_user.loopnet_logon,current_user.loopnet_password)
+      #redirect_to {:action => :show}
+
+  end
+
   def show
   	@property = Property.find(params[:id])
     
@@ -14,9 +23,11 @@ class PropertiesController < ApplicationController
   end
 
   def create
-
+ 
       @property = Property.new(property_params)
       @property.user_id = current_user.id
+      Rails.logger.info("###DEBUG current_user     :=> #{current_user}")
+      Rails.logger.info("###DEBUG property.user_id :=> #{@property.user_id}")
         respond_to do |format|
       if @property.save
         format.html { redirect_to @property, notice: 'Property was successfully created.' }
@@ -26,11 +37,10 @@ class PropertiesController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @property.errors, status: :unprocessable_entity }
       end
-    end
-
-     
+    end   
      
  end
+
 
   def update
     property = Property.find(params[:id])

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131216005419) do
+ActiveRecord::Schema.define(version: 20140204003412) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(version: 20131216005419) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "attachments", force: true do |t|
+    t.string   "name"
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+  end
 
   create_table "properties", force: true do |t|
     t.string   "title"
@@ -64,6 +76,12 @@ ActiveRecord::Schema.define(version: 20131216005419) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "loopnet_logon"
+    t.string   "loopnet_password"
+    t.string   "mncar_logon"
+    t.string   "mncar_password"
+    t.string   "craigslist_logon"
+    t.string   "craigslist_password"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

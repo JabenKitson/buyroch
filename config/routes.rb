@@ -12,6 +12,9 @@ Buyroch::Application.routes.draw do
   get "home/about"
   get "home/commercial"
   get "myproperties" => 'properties#myproperties'
+  post "autopost/loopnet"
+  post "autopost/mncar"
+  post "autopost/craigslist"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -36,7 +39,13 @@ Buyroch::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
+ resources :properties do
+  member do
+    post 'loopnet'
+    post 'mncar'
+    post 'craigslist'
+  end
+ end
   # Example resource route with options:
   #   resources :products do
   #     member do

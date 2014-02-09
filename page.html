@@ -1,0 +1,1400 @@
+
+<!DOCTYPE html>
+<head><title>
+	LoopNet - Geocode your property
+</title>
+<!--Start PageHead -->
+
+<!-- Detection only works up to IE9.  IE 10+ does not see these comments -->
+<!--[if IE ]><script>document.documentElement.className+=' ie ';</script><![endif]-->
+<!--[if lte IE 8 ]><script>document.documentElement.className+=' oldIE ';</script><![endif]-->
+<!--[if IE 7 ]><script>document.documentElement.className+=' ie7 ';</script><![endif]-->
+<!--[if IE 8 ]><script>document.documentElement.className+=' ie8 ';</script><![endif]-->
+<!--[if IE 9 ]><script>document.documentElement.className+=' ie9 ';</script><![endif]-->
+<!--smart app banner for iOS Mobile Safari ONLY-->
+<meta name="apple-itunes-app" content="app-id=349561448">
+<meta name="description" content="LoopNet is the largest commercial real estate listing service online.  Search commercial properties for sale or lease, find investment properties, view commercial real estate comparables, research market trends, market your commercial listings for sale and more."/>
+
+
+
+
+<link href="//s.lnimg.com/bundles/global.bundle.css?v=VHDjMBm5GODEeCHPC6ohsFYq4hG9ZUuHUCZPIKZTjzw" type="text/css" rel="stylesheet"/>
+<link href="//s.lnimg.com/xNet/MainSite/Styles/search/quickSearch.css?v=aqwA6JfbPfByEHmO_KtQGYKx7YulshzvMIueq2adZaM" type="text/css" rel="stylesheet"/>
+<link href="//s.lnimg.com/xNet/Mainsite/styles/adPlatform/adConfig.css?v=Wej11C7SxFMHxzY9FW3gGHgwSi-9QJguvnSQabM3d3g" type="text/css" rel="stylesheet"/>
+<link href="//s.lnimg.com/xNet/Mainsite/Styles/Overlays/olLight.css?v=AKCM61Kh2yTtEIoP3Y3K_DTbYY9kPZCt9XVckaucc94" type="text/css" rel="stylesheet"/>
+<link href="//s.lnimg.com/xNet/MainSite/Styles/Overlays/olBrokerAd.css?v=pe7sTv35ts0efpcmlFg8ypQgZQ3Kpk3pqKDswAyPA4Y" type="text/css" rel="stylesheet"/><link href="//s.lnimg.com/xNet/MainSite/Styles/AddEdit/addedit.css" type="text/css" rel="stylesheet" /><link href="//s.lnimg.com/xNet/MainSite/Styles/AddEdit/addedit-common.css" type="text/css" rel="stylesheet" />
+<script>
+sContentProviderUrl="http://s.lnimg.com";
+LN_UD={cas:10,ci:4,fn:"Jabe",ln:"Kitson",pg:"afc903c9-022d-43a0-9f15-df2b5f7df45e",sg:"bb37484c-fa85-4c44-bf31-333cbb5109bf",sid:1,ai:"Dlz1TRH9Q",si:"R2X7TzR3Q",f:2,c:"I5316jP3A"};
+LN_EC={je:0,ad:1,ac:2,lr:3,di:4,dm:5,nf:6,d:7,ue:8,ab:9};
+LN_UM={n:0,a:2147483647,hfs:1,mps:2,mz:4,hfl:8,mpp:16,pii:32,emo:64};
+LN_UF={n:0,p:1,b:2,s:4,t:8,o:16,w:32,r:64,v:128,i:256};
+</script>
+<script src="//s.lnimg.com/includes/incGlobalJavascript.js?v=J9NhMvkQ76dluizoSn5sUBPay0AO8dOxuomjlcHuL8Y"></script>
+<script src="//s.lnimg.com/xNet/MainSite/Scripts/Ads/DoubleClick.js?v=Jv_vW3n2CdXhBkTlvNVjVFnT9gZZYrEraS8I9lQF3qs"></script>
+<script src="//s.lnimg.com/xNet/Mainsite/Scripts/ThirdParty/Modernizr/modernizr.custom.39512.js?v=kuRjdhdADy_Hci44vSb-VpxwmYjo9k0KkOEPX73DY_k"></script>
+<script src="//s.lnimg.com/bundles/jQuery.bundle.js?v=2Tp90eEd35iiSfweN8eFl_CRNQbocaxU1i2O4ni8sCE"></script>
+<script src="//s.lnimg.com/bundles/jQueryUI.bundle.js?v=f5qSk22jA_e9L5bP3W0IZijcB28Z5kA31lhuL9-bC0c"></script>
+<script src="//s.lnimg.com/xNet/MainSite/Scripts/jquery/plugins/jquery.json-2.2.js?v=vXzAVQpuBgpr5gi0n7108xrFn2gf6JkeZLcKRWDinuo"></script>
+<script src="//s.lnimg.com/xNet/MainSite/Scripts/jquery/plugins/util.js?v=6w0fuNyTiLxEDbObDxwCgkihHHrhtLIWWY-2yllKFKA"></script>
+<script src="//s.lnimg.com/xNet/MainSite/Scripts/jquery/plugins/logging.js?v=Cdi_YeNxW82bBFbdhtoFriTKXX91vhTWlUv0rtwnrKQ"></script>
+<script src="//s.lnimg.com/xNet/Mainsite/Scripts/Core/Core.js?v=snRCfKn0G9zrvcoP-wwYukbJj1eRyfA5PNuNpcdXbUY"></script>
+<script src="//s.lnimg.com/xNet/Mainsite/Scripts/Core/Utility/Trace.js?v=pPQghv-TONccaMKXrvFdWRNNoF5HLXTreehsCjgpYO8"></script>
+<script src="//s.lnimg.com/xNet/MainSite/Scripts/jquery/plugins/pubsub.js?v=oxh9iwwnz0uAnxpgjiYxUsoslLeklyxsYKbEyqkk-3s"></script>
+<script src="//s.lnimg.com/xNet/MainSite/Scripts/jquery/plugins/placeholder.js?v=N7sYy1K8gB-dR2C1-YDmptJ7GOcetHw3n5tBv25lHME"></script>
+<script src="//s.lnimg.com/xNet/MainSite/Scripts/Ads/postMessage.js?v=js0Mhj8cpy7x1uEE5SHVOSHfkrTYvoXJjHSZ5PaFMm0"></script>
+<script src="//s.lnimg.com/xNet/MainSite/Scripts/Ads/ContactAdvertiser.js?v=66UhdNwn7HicNFrUgqpBaHeZANb-wdg2RAbmfoD0Lbs"></script>
+<script src="http://parcelstream.com/DMPVE.aspx?key=tx6ARPyfu+pr4kHcKojSe6om3vepT6dSJC0HkDpYMbs="></script>
+<script src="//s.lnimg.com/xNet/MainSite/Scripts/FeedbackAjax.js?v=w6mneYDFoZee_NEUUps_xOBRHhGRzz5--Q6gXY6DBFI"></script>
+<script>
+("d2luZG93LmlTVUlEID0gODI4OTQ1MDsNCndpbmRvdy5zU0lEID0gJ2JiMzc0ODRjLWZhODUtNGM0NC1iZjMxLTMzM2NiYjUxMDliZic7DQp3aW5kb3cuaVNJRCA9IDE7DQp3aW5kb3cuc1NlcnZpY2VTb3VyY2VDb2RlID0gJyc7DQp3aW5k").x("b3cuZXhlY0dVSUQgPSAnYWZjOTAzYzktMDIyZC00M2EwLTlmMTUtZGYyYjVmN2RmNDVlJzsNCndpbmRvdy5wR1VJRCA9ICdiMmE5NzViNy1jNGExLTQ4MmEtYmY5NS00ZjkwODU2Y2EyMjInOw0Kd2luZG93LmlBSUQgPSA5MjI2MDYxOw0K");
+var oFeedbackEmailer=new FeedBackEmailer();oFeedbackEmailer.Url="http://www.loopnet.com/xNet/MainSite/Listing/Manage/Map.aspx?LID=18510201&amp;PTYPE=FS&amp;CreateMode=true&amp;linkcode=19060&amp;spotlightDisplayed=False";oFeedbackEmailer.SenderFirstName="Jabe";oFeedbackEmailer.SenderLastName="Kitson";oFeedbackEmailer.AID="9226061";oFeedbackEmailer.PhoneNumber="(507) 273-5806";oFeedbackEmailer.Email="jabenkitson@gmail.com";oFeedbackEmailer.PageExecutionGuid="afc903c9-022d-43a0-9f15-df2b5f7df45e";oFeedbackEmailer.UserAgent="Mechanize/2.7.2 Ruby/2.0.0p353 (http://github.com/sparklemotion/mechanize/)";oFeedbackEmailer.Recipient="loopnetclientsupport@loopnet.com";window.feedbackEmailer=oFeedbackEmailer;
+</script>
+
+	<script Language="JavaScript" SRC="//s.lnimg.com/includes/overLib_mini.js"></script>
+    <style>
+        .container.withSubTabs {
+            border-top-style: solid !important;
+            border-top-width: 1px !important;
+        }
+        .mapContainer, .MSVE_MapContainer { margin-top: 20px; }
+    </style>
+
+<!-- Server LNPRODWEB08 --><script type="text/javascript">var _gaq=_gaq||[];var x=document.getElementsByName('X-GAExcludeTracking')[0];if(!x){_gaq.push(['_setAccount','UA-31346-1']);_gaq.push(['_setDomainName','loopnet.com']);x=document.getElementsByName('X-GAUserVar')[0];if(x&&x.content){_gaq.push(['_setCustomVar',1,'Segment',x.content])}x=document.getElementsByName('X-GATrack')[0];var page=x&&x.content?x.content:document.location.pathname+document.location.search;_gaq.push(['_trackPageview',page])}(function(){var e=document.createElement('script');e.type='text/javascript';e.async=true;e.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var t=document.getElementsByTagName('script')[0];t.parentNode.insertBefore(e,t)})()</script>
+</head>
+<body class="addedit" bottomMargin="0" vLink="#cc3300" aLink="#cc3300" link="#333366" bgColor="#ffffff" leftMargin="0" topMargin="0">
+    <div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
+    <form name="GeoMap" method="post" action="Map.aspx?LID=18510201&amp;PTYPE=FS&amp;CreateMode=true&amp;linkcode=19060&amp;spotlightDisplayed=False" id="GeoMap">
+<input type="hidden" name="VIEWSTATEID" id="VIEWSTATEID" value="899984770" />
+<input type="hidden" name="PgCxtGuid" id="PgCxtGuid" value="b2a975b7-c4a1-482a-bf95-4f90856ca222" />
+<input type="hidden" name="PgCxtFLKey" id="PgCxtFLKey" value="" />
+<input type="hidden" name="PgCxtCurFLKey" id="PgCxtCurFLKey" value="AddEditMap" />
+<input type="hidden" name="PgCxtDir" id="PgCxtDir" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="" />
+
+
+<script type="text/javascript">
+//<![CDATA[
+var UserClickedID = 'SelectLatLongMap_UserClicked';//]]>
+</script>
+<script language="Javascript">try{if(getCookie('InPageRegByPassBackButtonReloadPage') == 'true'){setCookie('InPageRegByPassBackButtonReloadPage', 'false', null, '/', null, null);window.location.reload();}}catch(jse){}</script><script language="Javascript">try{SetUserInfoCookie(9226061,'BASIC')}catch(e){}</script>
+<script src="//s.lnimg.com/xNet/MainSite/Scripts/NewsFeed.js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var FSCategories = ['70','80','40','90','50','10','60','100','30','130','120','140'];var FLCategories = ['40','80','90','50','120'];var RSCategories = ['70','80','40','90','50','10','60','100','30','130','120','140'];var MPCategories = ['70','80','40','90','50','10','60','100','30','130','120','150'];//]]>
+</script>
+
+<script language='Javascript'>
+<!--
+	function makePopupProfile(h){
+	popup = window.open(h,'popup1','width=780,height=680,top=30,left=30,toolbar=no,location=no,directories=no,status=yes,scrollbars=yes,resizable=yes,menubar=no,screenX=200,screenY=200');
+	// URL of popup window
+	popup.location.href = h;
+	if (popup.opener == null) popup.opener = window;
+	//popup.opener.name = 'main';
+}
+//-->
+</script><script language=javascript>var PageExecutionGuid='afc903c9-022d-43a0-9f15-df2b5f7df45e'; </script>
+    <div id="Top1_contactAdvertiser1_contactAdvertiserContainer">
+</div>
+
+<script type="text/javascript">
+
+$(function () {
+    var userEmailDlg = 'Top1_contactAdvertiser1_contactAdvertiserContainer' + '_UserEmailDlg';
+    var confirmationDlg = 'Top1_contactAdvertiser1_contactAdvertiserContainer' + '_ConfirmationDlg';
+
+    var contactAdvertiserContainer = $('#' + 'Top1_contactAdvertiser1_contactAdvertiserContainer');
+    if($.fn.lnContactAdvertiser) {
+    contactAdvertiserContainer.lnContactAdvertiser({
+        userEmailDlg: userEmailDlg,
+        confirmationDlg: confirmationDlg,
+        overlay: 'overlayContainer',
+        emailSvcURL: 'http://marketplace.loopnet.com/adbroker/api/leadgen/SendMessage',
+        adClickEvent: window.LABEL_ADBROKER_CLICKEVENT,
+        adViewEvent: window.LABEL_ADBROKER_VIEWEVENT,
+        userFirstName: 'Jabe',
+        userLastName: 'Kitson',
+        userEmail: 'jabenkitson@gmail.com',
+        userPhoneAreaCode: '507', 
+        userPhonePrefix: '273',
+        userPhoneSuffix: '5806',
+        userPhoneExt: '',
+        listingAddress1: '',
+        listingAddress2: '',
+        listingPostalZipCode: '',
+        listingPostalCodeExt: '',
+        listingStateProvCode: '',
+        listingCity: '',
+        listingCountryCode: '',
+        postMsgIFrame: 'ContactAdvertiser_iframe',
+        postMsgIFrameContainer: 'ContactAdvertiser_IFrame_Container',
+        postMsgIFrameSrc: 'http://marketplace.loopnet.com/ClientProxy',
+        userRefKey: '9226061',
+        successConfirmationMsg: 'Your message has been sent to the featured local broker.',
+        failedConfirmationMsg: 'Oops! It appears that there\'s a network issue. Please try again.',
+        onClickActionCode: 2152,
+        onSendActionCode: 2153
+    });
+    }
+});
+</script>
+
+<div class="overlayContainer" id="overlayContainer" style="display: none; #height: 600px; #width: 100%; #margin: -40px 0 0 0;">
+    <div class="overlayScreen screenDark"><!-- --></div>
+</div>
+<script language="javascript">var divNotificationBox = "Top1_divNotificationBox";</script>
+
+<script type="text/javascript">
+    function AsyncCall(url, redirect) {
+        var xmlHttp = new XMLHttpRequest();
+        if (redirect) {
+            xmlHttp.onreadystatechange = function () {
+                if (this.readyState === 4) {
+                    window.location = redirect;
+                }
+            };
+        }
+        xmlHttp.open("GET", url, true);
+        xmlHttp.send(null);
+    }
+</script>
+
+<div class="Header clearfix">
+    <div class="headContainer clearfix">
+        <div class="Logo">
+            <a onclick="AsyncCall('/xNet/MainSite/HttpHandlers/Logging/SaveActionCode.ashx?pg=afc903c9-022d-43a0-9f15-df2b5f7df45e&ac=151', 'http://www.loopnet.com')" href="javascript: void(0);"
+                title="LoopNet - #1 in Commercial Real Estate Online" id="logoMain">
+                <div class="backToHome">Homepage</div>
+            </a>
+        </div>
+        <!-- Logo -->
+        <div class="navItems loggedIn noProfilePic noNewNotifications" id="logInState">
+            
+                <ul id="top-nav" class="navMenu clearfix">
+                    <li class="navForSale first" onmouseover="this.className ='navHover navForSale first'" onmouseout="this.className ='navForSale first'">
+                        <a class="navPrimaryLink" title='Find commercial real estate for sale.' href="http://www.loopnet.com/forsale/?AutoRedirect=Y&linkcode=20970">
+                            For Sale</a>
+                        
+                    </li>
+                    <li class="navForLease" onmouseover="this.className ='navHover navForLease'" onmouseout="this.className ='navForLease'">
+                        <a class="navPrimaryLink" title='Find commercial real estate for lease.' href="http://www.loopnet.com/forlease/?AutoRedirect=Y&linkcode=20990">
+                            For Lease</a>
+                        
+                    </li>
+                    <li><a class="navPrimaryLink" title=' Find verified sales comparables.' href="http://www.loopnet.com/salescomps/?FromLocation=CompSearch&linkcode=21000">
+                        Sales Comps</a>
+                        
+                    </li>
+
+                    <li><a class="navPrimaryLink" title='Research any property to find historical sale and lease info, owner, tenant, tax, public record info and more.'
+                        href="http://www.loopnet.com/propertyrecords/?Linkcode=21005">Property
+                        Records</a></li>
+
+                    <li><a class="navPrimaryLink" title="Get information on your local market for Office, Retail, Industrial, Multifamily, and other properties across the U.S." href="http://www.loopnet.com/local/?linkcode=30260">Local Info</a></li>
+
+                    <li><a class="navPrimaryLink" title='List your property for FREE. Reach the largest online commercial real estate audience.'
+                        href="http://www.loopnet.com/xNet/MainSite/Listing/Manage/?linkcode=40">Add Listing</a></li>
+												
+                    
+                    <li class="navUserProfile last"  onmouseout="this.className ='last navUserProfile'" onmouseover="this.className ='navUserProfile navHover last'">
+                        <div class="containBG clearfix" id="myloopnet_button">
+                            <img src="//s.lnimg.com/images/nav/userNoProfilePic.jpg" id="Top1_memberProfilePhoto" />
+                            <a href="http://www.loopnet.com/xNet/MainSite/User/home/myloopnet.aspx?linkcode=20" id="userName" class="navPrimaryLink"><span id="Top1_spanUserName" class="userNameText">Jabe Kitson</span><span class="memberBadge basic"></span>
+                            </a>
+                        </div>
+                        <ul class="dropDown">
+                            <li id="addPicture"><a class="featured" title="Complete your profile" href="http://www.loopnet.com/xNet/MainSite/user/myprofile/edit.aspx">Complete your profile</a></li>
+                            <li><a title="My LoopNet" href="http://www.loopnet.com/xNet/MainSite/User/home/myloopnet.aspx?linkcode=20" onclick="AsyncCall('/xNet/MainSite/HttpHandlers/Logging/SaveActionCode.ashx?pg=afc903c9-022d-43a0-9f15-df2b5f7df45e&ac=1834')"><i class="icon-001"></i>My LoopNet</a></li>
+                            
+                            <li><a title="My Listings" href="http://www.loopnet.com/xNet/MainSite/User/Home/MyListings.aspx?LinkCode=29390"><i class="icon-002"></i>My Listings</a></li>
+                            <li><a title="Saved Searches &amp; Alerts" href="http://www.loopnet.com/xNet/MainSite/Listing/SavedSearches/MySavedSearches_FSFL.aspx?LinkCode=29400"><i class="icon-003"></i>Saved Searches &amp; Alerts</a></li>
+                            <li id="Top1_liMyContacts"><a href="http://www.loopnet.com/xNet/MainSite/User/Contact/Manage.aspx"
+                                title="My Contacts"><i class="icon-004"></i>My Contacts</a></li><li id="Top1_liSavedReports"><a href="http://www.loopnet.com/xNet/MainSite/Research/Report/SavedReports.aspx?LinkCode=29490"
+                                title="My Reports"><i class="icon-005"></i>My Reports &amp; Marketing</a></li>
+                            <li><a title="My Watch List" href="http://www.loopnet.com/xNet/MainSite/Listing/MyWatchList/?LinkCode=29410"><i class="icon-006"></i>My Watch List</a></li>
+                            <li><a title="Saved Sales Comps" href="http://www.loopnet.com/xNet/MainSite/Comparables/SavedComparables/MyComparables.aspx?LinkCode=29420"><i class="icon-007"></i>Saved Sales Comps</a></li>
+                            <li><a title="My Profile" href="http://www.loopnet.com/xNet/MainSite/User/MyProfile/LandingPage.aspx?LinkCode=29440"><i class="icon-009"></i>My Profile</a></li>
+                            <li><a title="My Account" href="http://www.loopnet.com/xNet/Mainsite/User/MyAccount/MyAccount.aspx?LinkCode=29450"><i class="icon-010"></i>My Account</a></li>
+                            <li><a title="Help" href="http://www.loopnet.com/xNet/MainSite/Marketing/About/Help.aspx?LinkCode=1230"><i class="icon-011"></i>Help</a></li>
+                            <li><a class="signOut" title="Log Out" href="http://www.loopnet.com/xNet/MainSite/User/logoff.aspx?LinkCode=850"><i class="icon-017"></i>Log Out</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="navNotifications"  onmouseout="this.className ='navNotifications'" onmouseover="this.className ='navNotifications navHover'">
+                        <div id="Top1_divNotificationBox" class="notificationBox"><span id="spanNotificationCount">0</span></div>
+                        <ul class="dropDown">
+                            <li class="title clearfix">Notifications (BETA)</li>
+                            <li id="Top1_noNewNotificationsAlert">You currently have no new notifications.</li>
+                            <li class="clearfix">
+                            
+                            </li>
+                            <li class="btnNotifications"><a title="Help" href="http://www.loopnet.com/xNet/MainSite/User/home/myloopnet.aspx">View all notifications</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+                <!-- nav -->
+            
+            <div id="Top1_phSubItems" class="SubItems clearfix">
+                
+<!--Quick Search Control Begin-->
+<style type="text/css">
+#citySuggest li.selected span
+{
+	background: #2967BA;
+	color: #fff;
+}
+</style>
+         <div id="Top1_quickSearch_divRoot" class="quickSearch thin clearfix">
+		    
+		    <div class="quickSearchInput clearfix">
+			    <div class="typeSelectWrapper">
+				    <a href="javascript:UniversalQuickSearch.togglePropertyTypesFromLink();" id="aMultiLevelDropDown" class="typeSelect multiOption" title="Select a Property Type">All Property Types</a>
+                    
+				    <!-- Multi-Layered Dropdown -->
+                    
+                        <ul id="multiLevelOptionsWrapper" style="display: none;">
+					        <li id="multiLevelOptionsWrapper_ErrorAlert" style="display: none;" class="quickSearchError">
+						        <p>Select a property type below, then click Search.</p>
+					        </li>
+					        <li onmouseover="showDrop('quickSearchFS', 'MultiLevelFSOptions');" onmouseout="showDrop('quickSearchFS', 'MultiLevelFSOptions');"> <a class="quickSearchType" href="javascript:UniversalQuickSearch.SelectPropertyType('All Property Types', '', 'FS');" title="For Sale" id="quickSearchFS">For Sale<div class="propertyTypeArrow"></div></a>
+                                <ul id="MultiLevelFSOptions" style="display: none;">
+                                
+							        <li><a href="javascript:UniversalQuickSearch.SelectPropertyType('All properties for sale', '', 'FS');" title="All properties for sale" id="quickSearchFS">All properties for sale</a></li>
+                                <LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Multifamily', 70, 'FS');" title="Multifamily">Multifamily</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Office', 80, 'FS');" title="Office">Office</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Industrial', 40, 'FS');" title="Industrial">Industrial</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Retail', 90, 'FS');" title="Retail">Retail</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Land', 50, 'FS');" title="Land">Land</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Agricultural', 10, 'FS');" title="Agricultural">Agricultural</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Hotel & Motel', 60, 'FS');" title="Hotel &amp; Motel">Hotel &amp; Motel</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Senior Housing', 100, 'FS');" title="Senior Housing">Senior Housing</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Health Care', 30, 'FS');" title="Health Care">Health Care</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Sport & Entertainment', 130, 'FS');" title="Sport &amp; Entertainment">Sport &amp; Entertainment</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Special Purpose', 120, 'FS');" title="Special Purpose">Special Purpose</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Residential Income', 140, 'FS');" title="Residential Income">Residential Income</a></LI>
+
+						        </ul>
+					        </li>
+					        <li onmouseover="showDrop('quickSearchFL', 'MultiLevelFLOptions');" onmouseout="showDrop('quickSearchFL', 'MultiLevelFLOptions');"> <a class="quickSearchType" href="javascript:UniversalQuickSearch.SelectPropertyType('All Types', '', 'FL');" title="For Lease" id="quickSearchFL">For Lease<div class="propertyTypeArrow"></div>
+						        </a>
+                            
+						        <ul id="MultiLevelFLOptions" style="display: none;">
+                                
+							        <li><a href="javascript:UniversalQuickSearch.SelectPropertyType('All properties for lease', '', 'FL');" title="All properties for lease" id="quickSearchFL">All properties for lease</a></li>
+						        <LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Industrial', 40, 'FL');" title="Industrial">Industrial</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Office', 80, 'FL');" title="Office">Office</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Retail', 90, 'FL');" title="Retail">Retail</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Land', 50, 'FL');" title="Land">Land</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Special Purpose', 120, 'FL');" title="Special Purpose">Special Purpose</a></LI>
+                                </ul>
+					        </li>
+                            <!-- RS -->
+                            
+					        <li onmouseover="showDrop('quickSearchRS', 'MultiLevelRSOptions');" onmouseout="showDrop('quickSearchRS', 'MultiLevelRSOptions');"> <a class="quickSearchType" href="javascript:UniversalQuickSearch.SelectPropertyType('All Property Types', '', 'RS');" title="Sales Comps" id="quickSearchRS">Sales Comps
+						        <div class="propertyTypeArrow"></div>
+						        </a>
+						        <ul id="MultiLevelRSOptions" style="display: none;">
+
+
+                                
+							        <li><a href="javascript:UniversalQuickSearch.SelectPropertyType('All sales comps', '', 'RS');" title="All sales comps" id="quickSearchRS">All sales comps</a></li>
+                                <LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Multifamily', 70, 'RS');" title="Multifamily">Multifamily</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Office', 80, 'RS');" title="Office">Office</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Industrial', 40, 'RS');" title="Industrial">Industrial</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Retail', 90, 'RS');" title="Retail">Retail</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Land', 50, 'RS');" title="Land">Land</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Agricultural', 10, 'RS');" title="Agricultural">Agricultural</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Hotel & Motel', 60, 'RS');" title="Hotel &amp; Motel">Hotel &amp; Motel</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Senior Housing', 100, 'RS');" title="Senior Housing">Senior Housing</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Health Care', 30, 'RS');" title="Health Care">Health Care</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Sport & Entertainment', 130, 'RS');" title="Sport &amp; Entertainment">Sport &amp; Entertainment</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Special Purpose', 120, 'RS');" title="Special Purpose">Special Purpose</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Residential Income', 140, 'RS');" title="Residential Income">Residential Income</a></LI>
+						        </ul>
+					        </li>
+					        <!--Master Property-->
+					        <li onmouseover="showDrop('quickSearchMP', 'MultiLevelMPOptions');" onmouseout="showDrop('quickSearchMP', 'MultiLevelMPOptions');"> <a href="javascript:UniversalQuickSearch.SelectPropertyType('All Property Types', '', 'MP');" title="PropertyRecord" id="quickSearchMP" class="quickSearchType">Property Records
+						        <div class="propertyTypeArrow"></div>
+						        </a>
+						        <ul id="MultiLevelMPOptions" style="display: none;">
+                                
+							        <li><a href="javascript:UniversalQuickSearch.SelectPropertyType('All property records', '', 'MP');" title="All property records" id="quickSearchMP">All property records</a></li>
+                                <LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Multifamily', 70, 'MP');" title="Multifamily">Multifamily</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Office', 80, 'MP');" title="Office">Office</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Industrial', 40, 'MP');" title="Industrial">Industrial</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Retail', 90, 'MP');" title="Retail">Retail</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Land', 50, 'MP');" title="Land">Land</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Agricultural', 10, 'MP');" title="Agricultural">Agricultural</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Hotel & Motel', 60, 'MP');" title="Hotel &amp; Motel">Hotel &amp; Motel</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Senior Housing', 100, 'MP');" title="Senior Housing">Senior Housing</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Health Care', 30, 'MP');" title="Health Care">Health Care</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Sport & Entertainment', 130, 'MP');" title="Sport &amp; Entertainment">Sport &amp; Entertainment</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Special Purpose', 120, 'MP');" title="Special Purpose">Special Purpose</a></LI><LI><a href="javascript:UniversalQuickSearch.SelectPropertyType('Commercial Other', 150, 'MP');" title="Commercial Other">Commercial Other</a></LI>
+						        </ul>
+					        </li>
+                            
+				        </ul>
+                    
+                    <!-- Single Layered Dropdown -->
+                    
+			    </div>
+			    <div class="locationWrapper clearfix">
+				    <input type="text" autocomplete="off" name="Location" class="locationSelect clearfix" id="Location" placeholder="Enter a location" suggest="off">
+				    <div  id="citySuggest" style="display: none;" ></div>
+                    <div style="display: none;" class="searchSuggest" id="searchSuggest">
+					    <p>You may enter a US <span id="orCanadian">or Canadian</span> location in the following formats:</p>
+					    <ul>
+						    <li><span class="arrow right"></span>Address, City, State</li>
+                            <li><span class="arrow right"></span>Address, ZIP Code</li>
+						    <li><span class="arrow right"></span>ZIP Code</li>
+						    <li><span class="arrow right"></span>City, State</li>
+                            <li><span class="arrow right"></span>City, County, State</li>
+						    <li><span class="arrow right"></span>State</li>
+					    </ul>
+					    <p id="AdditionalSearchOptions">For additional search options, go to 
+                            <a id="HelpAdvancedSearchFS" title="Advanced Search" href="http://www.loopnet.com/forsale/more/">Advanced Search</a>
+                            <a id="HelpAdvancedSearchFL" title="Advanced Search" href="http://www.loopnet.com/forlease/more/">Advanced Search</a>
+                            <a id="HelpAdvancedSearchRS" title="Advanced Search" href="http://www.loopnet.com/salescomps/">Advanced Search</a>
+                            <a id="HelpAdvancedSearchMP" title="Advanced Search" href="http://www.loopnet.com/propertyrecords/">Advanced Search</a>.
+                        </p>
+
+
+				    </div>
+			    </div>
+						
+					<a class="button large blue" id="aSearch" title="Search" onclick="UniversalQuickSearch.DoSearch(); if ($.lnlogging) { $.lnlogging.LogActionCode({ ActionCode: 1330 }); };">Search</a>
+					
+						<!-- Thin profile quicksearch button -->
+					<a class="button small white" title="Search" style="display: none;" onclick="UniversalQuickSearch.DoSearch();if ($.lnlogging) { $.lnlogging.LogActionCode({ ActionCode: 1330 }); };">Search</a>
+				
+		    </div>
+		    
+				<div class="quickSearchOptions" id="FS_MoreOptions"><a title="Advanced search" href="http://www.loopnet.com/forsale/more/?LinkCode=19580">Advanced search</a></div>
+				<div class="quickSearchOptions" id="FL_MoreOptions"><a title="Advanced search" href="http://www.loopnet.com/forlease/more/?LinkCode=19590">Advanced search</a></div>
+				<div class="quickSearchOptions" id="RS_MoreOptions"><a title="Advanced search" href="http://www.loopnet.com/salescomps/?LinkCode=21790">Advanced search</a></div>
+				<div class="quickSearchOptions" id="MP_MoreOptions"><a title="Advanced search" href="http://www.loopnet.com/propertyrecords/?LinkCode=29240">Advanced search</a></div>
+			
+
+			<div class="quickSearchOptions twoColumnOptions" id="quickSearchOptions" style="display: none;"> 
+				<a href="#" title="Edit property subtypes" id="editProp" class="leftColumn" style="display:none">Edit property subtypes</a> 
+                <a href="#" title="Show property subtypes" id="showProp" class="leftColumn" style="">Show property subtypes</a>
+				<a href="#" title="More location options" id="showLoc"class="rightColumn" style="display:none">More location options</a>                            					 						
+                <a href="#" title="Edit location options" id="editLoc"class="rightColumn" style="">Edit location options</a>                      
+			</div>
+	    </div><!-- /QuickSearch -->
+<script type="text/javascript">
+	var activeTabSearchType = 'FS';
+	var activeOptionList = 'multiLevelOptionsWrapper';
+	var searchDisplayType = 'MultiLevel';
+</script>
+
+<script type='text/javascript'>
+var LocationErrorString = "Please double check the location format you entered and try again.";
+var selectedIndex = 0;
+var CitySuggestBlurred = true;
+var SelectingItems = false;
+var EnterPressed = false;
+(function($) {
+    $(document).ready(function() {
+        //Performance optimization, decorates an existing function call with a debounce throttle.
+        //Allow's the user to rapid-fire keystroke without bombarding auto-suggest server.
+        var debounceAjax = $.debounce(function(el){
+            SendAndFillSuggestions($(el).val());
+        }, 300);
+
+        $("#Location").keyup(function(key) {
+            if (!SelectingItems && key.which != 13) { //Not the "Enter" button and we're not selecting any suggestions
+                if ($(this).val().length >= 3) {
+                    //SendAndFillSuggestions($(this).val());
+                    debounceAjax(this);
+                    selectedIndex = -1;
+                }
+            }
+        });
+
+        $("#Location").keydown(function(key) {
+            if (key.which == 13)
+                $("#citySuggest").hide();
+
+            if (String.fromCharCode(key.which) == "&") // Up key
+            {
+                if (selectedIndex > 0)
+                    selectedIndex--;
+
+                SelectingItems = true;
+            }
+            else if (String.fromCharCode(key.which) == "(") // Down key
+            {
+                selectedIndex++;
+                SelectingItems = true;
+            }
+            else
+                SelectingItems = false;
+
+            HoverSelection();
+        });
+
+        $("#Location").keypress(function(key) {
+            // if it's the "Enter" button
+            if (selectedIndex != -1 && key.which == 13) {
+                $("#Location").val(cleanSuggestion($("#citySuggest li[index=\"" + selectedIndex + "\"]").find("span:first").text()));
+                $("#aSearch").trigger("click");
+                return false;
+            }
+        });
+
+        $(this).click(function(){
+            $("#citySuggest").hide();
+        });
+    });
+
+    function stringToRegExp(pattern, flags) {
+        return new RegExp(
+            pattern.replace( /[\[\]\\{}()+*?.$^|]/g , function(m) { return '\\' + m; }),
+            flags);
+    }
+
+    function makeBold(m) {
+        return '<b>' + m + '<\/b>';
+    }
+
+    function cleanSuggestion(value) {
+        //Begin ugly hack/strip
+        //1. When pasting either us zip or ca zip do not paste in paranthesis portion
+        return value.replace(/\s\(.*\)/, '');
+    }
+
+    function SendAndFillSuggestions(Value) {
+
+        var data = {"i":Value,"u":"false"};
+
+        //check if we need to wrap the data ourselves or if ajaxsetup.js is doing it for us
+        //assume if $.ajaxSettings.complete has been set that things are setup already
+        if(!$.ajaxSettings.complete) {
+            //this page isn't using ajaxsetup.js yet, we need to wrap the JSON
+            data = {"d":data};
+        }
+
+        //set up request for data
+        var suggestionRequest = {
+            type: "POST",
+            url: "/xNet/ExternalServices/Address/GeoLookup.svc/GetJSONLocationSuggestions",
+            data: $.toJSON(data),
+            contentType: "application/json; charset=utf-8",
+            success: function(data) {
+                var Address = data.r.l;
+                if (typeof(data.r.l) != 'undefined' && data.r.l != null &&
+                    data.r.l.length > 0) {
+
+                    var container = $("#citySuggest");
+
+                    container[0].innerHTML = '';
+                    container.show();
+
+                    var uLContainer = document.createElement("ul");
+
+                    container.append(uLContainer);
+
+                    pattern = stringToRegExp(Value, "gi");
+
+                    for (i = 0; i < data.r.l.length; ++i) {
+                        var liContainer = document.createElement("li");
+                        var spanContainer = document.createElement("span");
+                        var suggestion = data.r.l[i].s;
+
+                        $(uLContainer).append(liContainer);
+
+                        $(spanContainer).attr("title", suggestion);
+
+                        suggestion = suggestion.replace(pattern, makeBold);
+
+                        $(liContainer).append(spanContainer);
+
+                        $(spanContainer).append(suggestion);
+
+                        $(liContainer).click(function() {
+                            $("#Location").val(cleanSuggestion($(this).find("span:first").text()));
+                            $(uLContainer).hide();
+                            $("#Location").css("color", "#000");
+                        });
+
+                        $(liContainer).mouseover(function() {
+                            selectedIndex = $(this).attr("index");
+                            HoverSelection();
+                        });
+
+                        $(liContainer).mouseout(function() {
+                            $(this).attr("class", "");
+                        });
+                    }
+
+                    $("#citySuggest li").each(function(i) {
+                        $(this).attr("index", i);
+                    });
+                }
+            },
+            error: function(xhr, options, errorMessage) {
+                document.write(xhr.responseText);
+            },
+            complete: function(oResp, Status) {
+
+                var text = (!oResp || typeof oResp.responseText === "unknown") ? "" : oResp.responseText;
+
+                if (typeof(ErrorCodes) != 'undefined' && ErrorCodes != null) {
+                    if (text.indexOf("\"err\":{\"c\":" + ErrorCodes.ab) !== -1) {
+                        //abuse error!
+                        window.location = '/xnet/mainsite/accessdenied.aspx';
+                    }
+                }
+            }
+        };
+
+        //if the page supports ajax queuing use it
+        if($.ajaxQ && window.PAGE_AjaxQueueName)
+        {
+            $.ajaxQ.add(PAGE_AjaxQueueName, suggestionRequest);
+        }
+        else
+        {
+            $.ajax(suggestionRequest);
+        }
+    }
+
+    function HoverSelection() {
+        $("#citySuggest li").attr("class", "");
+        $('#citySuggest li[index="' + selectedIndex + '"]').attr("class", "selected");
+    }
+
+    $("body").bind('click', function (Event) {
+        var target = $(Event.target);
+
+        if (target.hasClass('button') ||
+            target.hasClass('typeSelect') ||
+            target.hasClass('quickSearchType'))
+        {
+            return;
+        }
+
+        if ($('#multiLevelOptionsWrapper:visible').length > 0) {
+            $('#multiLevelOptionsWrapper:visible').hide();
+        }
+    });
+})(jQuery);
+
+function showDrop(sId, sTypeId){
+    if (document.getElementById(sTypeId).style.display == '' || document.getElementById(sTypeId).style.display == 'block') {//now hide
+		document.getElementById(sId).className = 'quickSearchType';
+		document.getElementById(sTypeId).style.display = 'none';
+		document.getElementById(sTypeId).style.visibility = 'hidden';
+	} else {//now show
+		if( sId === 'quickSearchPRUpsell' && !quickSearchPRUpsellShown)
+		{
+		    LogActionCode(1598, PageExecutionGuid);
+		    quickSearchPRUpsellShown = true;
+		}
+		document.getElementById(sId).className = 'quickSearchType quickSearchHover';
+		document.getElementById(sTypeId).style.display = 'block';
+		document.getElementById(sTypeId).style.visibility = 'visible';
+		$('#' + sTypeId).css('visibility', 'visible'); //--- IE fix
+	}
+}
+</script>
+
+		
+<script type="text/javascript">
+(function($) {
+    var quickSearchPRUpsellShown = false;
+
+    var PageExecutionGUID = 'afc903c9-022d-43a0-9f15-df2b5f7df45e';
+    var UniversalQuickSearch = ({
+    	DropDownID: 'aMultiLevelDropDown',
+    	CategoryName: '',
+    	OptionsWrapperID: 'multiLevelOptionsWrapper',
+    	SearchType: 'FS', //FS: default (FS, FL, RS, MP)
+    	CategoryID: '',
+    	Location: "Enter a location",
+    	DefaultLocationWhenEmptyOnSubmit: "Rochester, MN",
+    	BlurString: 'Enter a location',
+    	TempDontHide: false,
+    	LocationInputField: document.getElementById('Location'),
+    	HelpSuggest: document.getElementById('searchSuggest'),
+    	HelpHover: false,
+
+    	initialize: function () {
+    	    
+    		$(this.LocationInputField).val(this.Location);
+
+    		if ($("#Location").val() == "Enter a location")
+    			$("#Location").css("color", "#999");
+    		else
+    			$("#Location").css("color", "#000");
+
+    		$('#AdditionalSearchOptions').show();
+
+    		if (this.SearchType == "FL") {
+    			if (searchDisplayType == 'Tabbed') {
+    				toggleTabs(document.getElementById('tabFL'), null, 'selected', 'a', this.SearchType, 'TabbedFLOptions');
+    			}
+    			else if (searchDisplayType == 'MultiLevel') {
+    				this.SelectPropertyType(this.CategoryName, this.CategoryID, this.SearchType);
+    			}
+
+    			$('#FS_MoreOptions').hide();
+    			$('#FL_MoreOptions').removeAttr("style");
+    			$('#RS_MoreOptions').hide();
+    			$('#MP_MoreOptions').hide();
+    			$('#HelpAdvancedSearchFS').hide();
+    			$('#HelpAdvancedSearchFL').show();
+    			$('#HelpAdvancedSearchRS').hide();
+    			$('#orCanadian').html(' or Canadian');
+    		}
+    		else if (this.SearchType == "FS") {
+
+    			if (searchDisplayType == 'MultiLevel') {
+    				this.SelectPropertyType(this.CategoryName, this.CategoryID, this.SearchType);
+    			}
+    			$('#FS_MoreOptions').removeAttr("style");
+                $('#FL_MoreOptions').hide();
+    			$('#RS_MoreOptions').hide();
+    			$('#MP_MoreOptions').hide();
+    			$('#HelpAdvancedSearchFS').show();
+    			$('#HelpAdvancedSearchFL').hide();
+    			$('#HelpAdvancedSearchRS').hide();
+    			$('#HelpAdvancedSearchMP').hide();
+    			$('#orCanadian').html(' or Canadian');
+    		}
+    		else if (this.SearchType == "RS") {
+    			if (searchDisplayType == 'Tabbed') {
+    				toggleTabs(document.getElementById('tabRS'), null, 'selected', 'a', this.SearchType, 'TabbedRSOptions');
+    			}
+    			else if (searchDisplayType == 'MultiLevel') {
+    				this.SelectPropertyType(this.CategoryName, this.CategoryID, this.SearchType);
+    			}
+    			$('#FS_MoreOptions').hide();
+    			$('#FL_MoreOptions').hide();
+                $('#RS_MoreOptions').removeAttr("style");
+    			$('#MP_MoreOptions').hide();
+    			$('#HelpAdvancedSearchFS').hide();
+    			$('#HelpAdvancedSearchFL').hide();
+    			$('#HelpAdvancedSearchRS').show();
+    			$('#HelpAdvancedSearchMP').hide();
+    			$('#orCanadian').html('');
+    		}
+    		else if (this.SearchType == "MP") {
+    			if (searchDisplayType == 'Tabbed') {
+    				toggleTabs(document.getElementById('tabMP'), null, 'selected', 'a', this.SearchType, 'TabbedMPOptions');
+    			}
+    			else if (searchDisplayType == 'MultiLevel') {
+    				this.SelectPropertyType(this.CategoryName, this.CategoryID, this.SearchType);
+    			}
+    			$('#FS_MoreOptions').hide();
+    			$('#FL_MoreOptions').hide();
+    			$('#RS_MoreOptions').hide();
+    			$('#MP_MoreOptions').removeAttr("style");
+    			//hide search options for MP
+    			$('#AdditionalSearchOptions').show();
+    			$('#HelpAdvancedSearchFS').hide();
+    			$('#HelpAdvancedSearchFL').hide();
+    			$('#HelpAdvancedSearchRS').hide();
+    			$('#HelpAdvancedSearchMP').show();
+    			$('#orCanadian').html('');
+    		}
+
+    		this.addEvent(this.LocationInputField, 'focus', this.locationFocusHandler);
+    		this.addEvent(this.LocationInputField, 'blur', this.locationBlurHandler);
+    		this.addEvent(this.LocationInputField, 'keydown', this.locationKeyDownHandler);
+    		this.addEvent(this.DropDownID, 'blur', this.propertyTypeBlurHandler);
+    		this.addEvent(this.DropDownID, 'focus', this.propertyTypesFocusHandler);
+    		this.addEvent(this.DropDownID, 'click', this.propertyTypesFocusHandler);
+
+            //horrible code; please change to use a common class for this!
+    		this.addEvent($('#HelpAdvancedSearchMP')[0], 'mouseover', this.helpHoverHandler);
+    		this.addEvent($('#HelpAdvancedSearchMP')[0], 'mouseout', this.helpHoverHandler);
+    		this.addEvent($('#HelpAdvancedSearchFS')[0], 'mouseover', this.helpHoverHandler);
+    		this.addEvent($('#HelpAdvancedSearchFS')[0], 'mouseout', this.helpHoverHandler);
+    		this.addEvent($('#HelpAdvancedSearchFL')[0], 'mouseover', this.helpHoverHandler);
+    		this.addEvent($('#HelpAdvancedSearchFL')[0], 'mouseout', this.helpHoverHandler);
+    		this.addEvent($('#HelpAdvancedSearchRS')[0], 'mouseover', this.helpHoverHandler);
+    		this.addEvent($('#HelpAdvancedSearchRS')[0], 'mouseout', this.helpHoverHandler);
+    	},
+
+    	helpHoverHandler: function (event) {
+    		UniversalQuickSearch.HelpHover = !UniversalQuickSearch.HelpHover;
+    	},
+
+
+    	propertyTypesFocusHandler: function (event) {
+    	},
+
+    	locationFocusHandler: function (event) {
+    		LocationInputjQ = $(UniversalQuickSearch.LocationInputField)
+    		LocationInputjQ.css('color', '#000');
+    		if (LocationInputjQ.val() == UniversalQuickSearch.BlurString) {
+    			LocationInputjQ.val('');
+    			if (UniversalQuickSearch.HelpSuggest)
+    				$(UniversalQuickSearch.HelpSuggest).show();
+    		}
+
+    	},
+
+    	locationBlurHandler: function (event) {
+    		LocationInputjQ = $(UniversalQuickSearch.LocationInputField);
+    		if (LocationInputjQ.val() == '') {
+    			LocationInputjQ.css('color', '#999');
+    			LocationInputjQ.val(UniversalQuickSearch.BlurString);
+    			if (!UniversalQuickSearch.HelpHover) {
+    				$(UniversalQuickSearch.HelpSuggest).hide();
+    			}
+    		}
+    	},
+
+    	locationKeyDownHandler: function (event) {
+    		if (UniversalQuickSearch.HelpSuggest)
+    			$(UniversalQuickSearch.HelpSuggest).hide()
+    	},
+
+    	propertyTypeBlurHandler: function (event) {
+    		setTimeout('hidePropertyTypes()', 200);
+    	},
+
+    	addEvent: function (obj, ev, handler) {
+    		if (!obj) return;
+
+    		if (obj.addEventListener)
+    			obj.addEventListener(ev, handler, false);
+    		else if (obj.attachEvent)
+    			obj.attachEvent('on' + ev, handler);
+    	},
+
+    	SelectPropertyType: function (categoryname, categoryId, searchtype) {
+
+    		if (categoryname == '' && searchDisplayType == 'MultiLevel') {
+    			$("#" + this.DropDownID).html('Select a Property Type');
+    			$("#" + this.DropDownID).css('color', '#999');
+    			return;
+    		}
+
+    		$("#" + this.DropDownID).css('color', '#3765B7');
+    		if (searchDisplayType == 'MultiLevel') { $('#multiLevelOptionsWrapper_ErrorAlert').hide(); }
+    		var valueHasChanged = false;
+
+    		if (
+                searchtype != UniversalQuickSearch.SearchType ||
+                categoryId != UniversalQuickSearch.CategoryID) {
+    			valueHasChanged = true;
+    		}
+
+
+    		this.CategoryName = categoryname;
+    		var selectedItemDisplay = categoryname;
+
+    		$('#AdditionalSearchOptions').show();
+    		if (searchtype == "FS") {
+    			$('#FS_MoreOptions').removeAttr("style");
+    			$('#FL_MoreOptions').hide();
+    			$('#RS_MoreOptions').hide();
+    			$('#MP_MoreOptions').hide();
+    			$('#HelpAdvancedSearchFS').show();
+    			$('#HelpAdvancedSearchFL').hide();
+    			$('#HelpAdvancedSearchRS').hide();
+    			$('#HelpAdvancedSearchMP').hide();
+    			$('#orCanadian').html(' or Canadian');
+    		}
+    		if (searchtype == "FL") {
+    			$('#FS_MoreOptions').hide();
+    			$('#FL_MoreOptions').removeAttr("style");
+    			$('#RS_MoreOptions').hide();
+    			$('#MP_MoreOptions').hide();
+    			$('#HelpAdvancedSearchFS').hide();
+    			$('#HelpAdvancedSearchFL').show();
+    			$('#HelpAdvancedSearchRS').hide();
+    			$('#HelpAdvancedSearchMP').hide();
+    			$('#orCanadian').html(' or Canadian');
+    		}
+    		if (searchtype == "RS") {
+    			$('#FS_MoreOptions').hide();
+    			$('#FL_MoreOptions').hide();
+    		    $('#RS_MoreOptions').removeAttr("style");
+    			$('#MP_MoreOptions').hide();
+    			$('#HelpAdvancedSearchFS').hide();
+    			$('#HelpAdvancedSearchFL').hide();
+    			$('#HelpAdvancedSearchRS').show();
+    			$('#HelpAdvancedSearchMP').hide();
+    			$('#orCanadian').html('');
+    		}
+    		if (searchtype == "MP") {
+    			$('#AdditionalSearchOptions').show()
+    			$('#FS_MoreOptions').hide()
+    			$('#FL_MoreOptions').hide()
+    			$('#RS_MoreOptions').hide()
+    			$('#MP_MoreOptions').removeAttr("style");
+    			$('#HelpAdvancedSearchFS').hide()
+    			$('#HelpAdvancedSearchFL').hide()
+    			$('#HelpAdvancedSearchRS').hide()
+    			$('#HelpAdvancedSearchMP').show()
+    			$('#orCanadian').html('');
+    		}
+
+    		if (searchtype == "FS" && searchDisplayType == 'MultiLevel' && categoryId != '') {
+    			selectedItemDisplay += ' For Sale';
+    		}
+    		if (searchtype == "FL" && searchDisplayType == 'MultiLevel' && categoryId != '') {
+    			selectedItemDisplay += ' For Lease';
+    		}
+    		if (searchtype == "RS" && searchDisplayType == 'MultiLevel' && categoryId != '') {
+    			selectedItemDisplay = 'Sold ' + selectedItemDisplay;
+    		}
+    		if (searchtype === "MP" && searchDisplayType == 'MultiLevel' && categoryId != '') {
+    			switch (categoryId) {
+    				case '': /*All*/
+    					selectedItemDisplay = 'All Property Record Types';
+    					break;
+    				case 100: /*Senior Housing*/
+    					selectedItemDisplay = 'Sr. Housing Property Records';
+    					break;
+    				case 110: /*Shopping Center*/
+    					selectedItemDisplay += ' Records';
+    					break;
+    				case 120: /*Special Purpose*/
+    					selectedItemDisplay = 'Special Purp. Property Records';
+    					break;
+    				case 130: /*Sport & Ent*/
+    					selectedItemDisplay = 'Sport & Ent. Property Records';
+    					break;
+    				//                    case 140:/*Res. Income*/                                                                     
+    				//                        selectedItemDisplay = 'Res. Income Property Records';                                                                     
+    				//                    break;                                                                     
+    				case 150: /*Commercial Other*/
+    					selectedItemDisplay = 'Other Property Records';
+    					break;
+    				default:
+    					selectedItemDisplay += ' Property Records';
+    					break;
+    			}
+    		}
+
+    		// hack to trim the name so it looks nice in the textbox
+    		if (searchtype == "FS" && categoryId == 130 && searchDisplayType == 'MultiLevel') {
+    			selectedItemDisplay = 'Sport & Ent. For Sale';
+    		}
+
+    		UniversalQuickSearch.SearchType = searchtype;
+    		UniversalQuickSearch.CategoryID = categoryId;
+
+    		if (valueHasChanged && this.onchange && typeof (this.onchange) == "function") {
+    			this.onchange();  // probably not the best way to "fire an event"
+    		}
+
+    		$("#" + this.DropDownID).html(selectedItemDisplay);
+
+            //--- Weird IE fix
+            $('#MultiLevelFSOptions').css('visibility', 'hidden');
+    		$('#MultiLevelFLOptions').css('visibility', 'hidden');
+    		$('#MultiLevelRSOptions').css('visibility', 'hidden');
+    		$('#MultiLevelMPOptions').css('visibility', 'hidden');
+
+    		hidePropertyTypes();
+    	},
+
+
+
+    	DoSearch: function (event) {
+    		if ($("#" + this.DropDownID).html() != null && typeof ($("#" + this.DropDownID).html()) != 'undefined' &&
+				$("#" + this.DropDownID).html().indexOf("Select a Property Type") > -1) {
+    			UniversalQuickSearch.TempDontHide = true;
+    			if (document.getElementById(activeOptionList).style.display == 'none') {
+    				UniversalQuickSearch.togglePropertyTypesFromLink();
+    			}
+    			else {
+    				$("#" + this.DropDownID).focus();
+    			}
+    			if (searchDisplayType == 'MultiLevel') { $('#multiLevelOptionsWrapper_ErrorAlert')[0].style.display = 'block'; }
+
+    			setTimeout("UniversalQuickSearch.TempDontHide=false;", 203);
+    			if ($.lnlogging) { $.lnlogging.LogActionCode({ ActionCode: 1130, Queueable: false }); }
+    			return false;
+    		}
+
+    		var QS_Form = document.createElement("FORM");
+    		document.body.appendChild(QS_Form);
+
+    		var FromUniversalInput = document.createElement("INPUT");
+    		FromUniversalInput.type = "hidden";
+    		FromUniversalInput.name = "FromUniversalSearch";
+    		FromUniversalInput.value = "true";
+
+    		var QuickSearchBlurString = document.createElement("INPUT");
+    		QuickSearchBlurString.type = "hidden";
+    		QuickSearchBlurString.name = "UniversalSearchBlurString";
+    		QuickSearchBlurString.value = UniversalQuickSearch.BlurString;
+
+    		var LocationInput = document.createElement("INPUT");
+    		LocationInput.type = "hidden";
+    		LocationInput.name = "UniversalSearchLocation";
+
+
+    		if (UniversalQuickSearch.LocationInputField.value == '' || UniversalQuickSearch.LocationInputField.value == UniversalQuickSearch.BlurString) {
+    			LocationInput.value = UniversalQuickSearch.DefaultLocationWhenEmptyOnSubmit;
+    		} else {
+    			LocationInput.value = UniversalQuickSearch.LocationInputField.value;
+    		}
+
+    		var PropertyTypeInput = document.createElement("INPUT");
+    		PropertyTypeInput.type = "hidden";
+    		PropertyTypeInput.name = "UniversalSearchPropertyType";
+    		PropertyTypeInput.value = UniversalQuickSearch.CategoryID;
+
+    		var doSearchLinkCode = "19690";
+    		var linkCodeQS = "";
+
+    		if (parseInt(doSearchLinkCode) > 0)
+    			linkCodeQS = "?linkcode=" + doSearchLinkCode;
+
+    		if (UniversalQuickSearch.SearchType == "FS") {
+    			QS_Form.action = "http://www.loopnet.com/forsale/" + linkCodeQS;
+    		}
+    		else if (UniversalQuickSearch.SearchType == "FL") {
+    			QS_Form.action = "http://www.loopnet.com/forlease/" + linkCodeQS;
+    		}
+    		else if (UniversalQuickSearch.SearchType == "RS") {
+    			QS_Form.action = "http://www.loopnet.com/salescomps/" + linkCodeQS;
+    		}
+    		else if (UniversalQuickSearch.SearchType == "MP") {
+    			QS_Form.action = "http://www.loopnet.com/propertyrecords/" + linkCodeQS;
+    		}
+
+    		QS_Form.appendChild(PropertyTypeInput);
+    		QS_Form.appendChild(LocationInput);
+    		QS_Form.appendChild(FromUniversalInput);
+    		QS_Form.appendChild(QuickSearchBlurString);
+    		QS_Form.method = "POST";
+
+    		QS_Form.submit();
+
+    		return false;
+    	},
+
+    	togglePropertyTypesFromLink: function () {
+    		if (document.getElementById(activeOptionList).style.display != 'none') {
+    			togglePropertyTypes();
+    		}
+    		else {
+    			UniversalQuickSearch.TempDontHide = true;
+    			togglePropertyTypes();
+
+    			var actionCode = $("#"+activeOptionList).attr('actioncode');
+
+					if (typeof (actionCode) != 'undefined' && !isNaN(actionCode)) {
+						var requestData = {"d":{"ActionCode":-2147483648,"ActionCodeList":null,"ActionCodeValue":"-2147483648","LinkCodeList":null,"PageGuid":"afc903c9-022d-43a0-9f15-df2b5f7df45e"},"r":{"cas":10,"ci":4,"fn":"Jabe","ln":"Kitson","pg":"afc903c9-022d-43a0-9f15-df2b5f7df45e","sg":"bb37484c-fa85-4c44-bf31-333cbb5109bf","sid":1,"ai":"Dlz1TRH9Q","si":"R2X7TzR3Q","f":2,"c":"I5316jP3A"},"o":null};
+						requestData.d.ActionCode = actionCode;
+						$.sendWCFRequest("/xNet/ExternalServices/Common/Logging.svc/UpdateActionCode", "POST", $.toJSON(requestData), null, null, null);
+					}
+
+    			setTimeout("UniversalQuickSearch.TempDontHide=false;", 203);
+    		}
+    	}
+    });
+
+
+    // wrapper for RemoteUniversalSuggest .. onReturn()
+    var QuickSearch = ({
+        createAndSendFormHandler: function (event) {
+            UniversalQuickSearch.DoSearch(event);
+        }
+    });
+
+    function togglePropertyTypes() {
+        toggle(activeOptionList);
+        //changeclass();
+
+        if (document.getElementById(activeOptionList).style.display != 'none') {
+            $("#"+UniversalQuickSearch.DropDownID).focus();
+        }
+    }
+
+    function hidePropertyTypes() {
+        if (!UniversalQuickSearch.TempDontHide) {
+            document.getElementById(activeOptionList).style.display = 'none';
+            //  document.getElementById("propTypesInitialDropDown").className = 'quickSearchMain';
+        }
+    }
+
+    function toggleActiveOptionList() {
+        if (activeOptionList != null) {
+            var e = $("#"+activeOptionList);
+            if (e.css('display') == 'none')
+            	e.css('display') = '';
+            else
+            	e.hide();
+        }
+    }
+    // simple function to toggle a div visible or not.
+    function toggle(id) {
+        var e = document.getElementById(id);
+        if (e.style.display == 'none')
+            e.style.display = '';
+        else
+            e.style.display = 'none';
+    }
+
+    toggleTabs = function(element, actionCode, activeClass, desiredTag, searchType, optionList) {
+        if (actionCode != null && typeof (actionCode) != 'undefined' && !isNaN(actionCode)) {
+			var RequestData = {"d":{"ActionCode":-2147483648,"ActionCodeList":null,"ActionCodeValue":"-2147483648","LinkCodeList":null,"PageGuid":"afc903c9-022d-43a0-9f15-df2b5f7df45e"},"r":{"cas":10,"ci":4,"fn":"Jabe","ln":"Kitson","pg":"afc903c9-022d-43a0-9f15-df2b5f7df45e","sg":"bb37484c-fa85-4c44-bf31-333cbb5109bf","sid":1,"ai":"Dlz1TRH9Q","si":"R2X7TzR3Q","f":2,"c":"I5316jP3A"},"o":null};
+			RequestData.d.ActionCode = actionCode;
+    	    $.sendWCFRequest("/xNet/ExternalServices/Common/Logging.svc/UpdateActionCode", "POST", $.toJSON(RequestData), null, null, null);
+    	}
+
+		var elements = element.parentNode.parentNode.getElementsByTagName(desiredTag);
+
+        for (var i = 0; i < elements.length; i++)
+            elements[i].className = "";
+
+        element.className = activeClass;
+        activeTabSearchType = searchType;
+        activeOptionList = optionList;
+
+        $('#TabbedFSOptions').hide();
+        $('#TabbedFLOptions').hide();
+        $('#TabbedRSOptions').hide();
+        $('#TabbedMPOptions').hide();
+
+        switch (searchType) {
+            case "FS":
+                setCorrespondingListItem(FSCategories, searchType, 'All properties for sale');
+                break;
+            case "FL":
+                setCorrespondingListItem(FLCategories, searchType, 'All properties for lease');
+                break;
+            case "RS":
+                setCorrespondingListItem(RSCategories, searchType, 'All sales comps');
+                break;
+
+            case "MP":
+                setCorrespondingListItem(MPCategories, searchType, 'All property records');
+            default:
+        }
+    };
+    window.toggleTabs = toggleTabs;
+
+    function setCorrespondingListItem(categoryIDArray, searchType, defaultCategoryName)
+    //select an item based on previous list for Tabbed QuickSearch
+    {
+        var len = categoryIDArray.length;
+        var itemFound = false;
+        for (var i = 0; i < len; i++) {
+            if (categoryIDArray[i] == UniversalQuickSearch.CategoryID) //found
+            {
+                itemFound = true;
+                UniversalQuickSearch.SelectPropertyType(UniversalQuickSearch.CategoryName, categoryIDArray[i], searchType);
+                break;
+            }
+        }
+
+        if (!itemFound) {
+            UniversalQuickSearch.SelectPropertyType(defaultCategoryName, '', searchType);
+        }
+    }
+
+    // class change on the "dropdown anchor" to add a small "lip" 
+    // to connect with the large dropdown dialogue.
+    function changeclass() {
+        // tclass = document.getElementById("propTypesInitialDropDown");
+        //if (tclass.className == 'quickSearchMain') {
+        //    tclass.className = "quickSearchMain dropdownActive";
+        //} else {
+        //    tclass.className = 'quickSearchMain';
+        //}
+    }
+
+    UniversalQuickSearch.initialize();
+
+    $("body").bind('click', function (Event) {
+        var target = $(Event.target);
+        if (target.hasClass('singleDropdown') || 
+            target[0].id === 'propTypesInitialDropDown' || 
+            target.parent()[0].id === 'propTypesInitialDropDown')
+        {
+            return;
+        }
+
+        if ($('.singleDropdown:visible').length > 0) {
+            $('.singleDropdown:visible').hide();
+        }
+    });
+
+    window.UniversalQuickSearch = UniversalQuickSearch;
+})(jQuery)
+</script>
+
+<!--Quick Search Control END-->
+
+                
+                <div class="userMenu">
+                    <ul id="Top1_ulUserAction" class="userAction clearfix">
+                        
+                        
+
+                        
+
+                        <!-- up sells after login -->
+                        <li id="Top1_li1" class="last">Get 3x more leads, <a id="a2" href="http://www.loopnet.com/xNet/MainSite/Product/Product.aspx?CategoryID=200&LinkCode=30290&uid=6&uprod=pmp&Intcpt=false"
+                            title="Log In">Upgrade Now</a>.</li>
+                        </ul>
+                </div>
+            </div>
+            <!-- SubItems -->
+        </div>
+        <!-- /nav items -->
+    </div>
+    <!-- Head Container -->
+    <div class="contentRule">
+    </div>
+    <!-- SubRule -->
+    
+    
+    
+    
+</div>
+<!--/Header-->
+
+    <div class="maincontent addedit clearfix">
+
+<script language="javascript" type="text/javascript">
+    if(this.nf) {
+        nf.addEvent(document.getElementById(divNotificationBox), 'mouseleave', leave, false);
+       }
+
+
+	addEvent(document, "touchend", touchHandler, true);
+
+	function touchHandler(event) {
+		if (event.target.id == 'myloopnet_button' || event.target.id == 'Top2_memberProfilePhoto' || event.target.id == 'Top2_spanUserName' || event.target.id == "userName") {
+			event.preventDefault();
+		}
+	}
+
+	function addEvent(elm, evType, fn, useCapture) {
+		if (elm.addEventListener) {
+			elm.addEventListener(evType, fn, useCapture);
+			return true;
+		}
+		else if (elm.attachEvent) {
+			var r = elm.attachEvent('on' + evType, fn);
+			return r;
+		}
+		else {
+			elm['on' + evType] = fn;
+		}
+	}
+</script>
+
+		<br />
+		<span id="lblWarning">
+	        <div class="lnAlert error">WARNING: We tried to determine the location but were unable to do so.
+	        Your listing may not appear in search results!</div>
+        </span>
+        <!-- Interior Messaging -->
+        
+        
+        <br />
+		
+
+<!-- Interior Messaging -->
+
+<!-- Master validation -->
+
+<div class="container white chiseled clearfix withSubTabs">
+<!-- Property Types -->
+<div class="addedit-section listingStatus">
+	<table cellspacing="0">
+		<tr class="addedit-pad">
+			<th>&nbsp;</th>
+			<td class="form-item">&nbsp;</td>
+		</tr>
+		<tr>
+			<th valign="top">
+			    <h4>Edit Property Map</h4>
+				Address Entered
+			</th>
+			<td class="form-item">
+					<address>1 My Street<br>Rochester, MN 55901</address>
+					
+					<div id="SelectLatLongMap_pnlNonGeocodedDir">
+	
+					    <h3>Tips:</h3>
+					    <ol>
+						    <li>Use your mouse to click on the location of your property on the map below.</li>
+                            <li>Using the map below is ideal for listings with no exact address.</li>
+                            <li>Zoom or pan map to find the location you are looking for.</li>
+                            <li>
+                                <span id="SelectLatLongMap_lblContinueToSave">Click "Continue" to save the location and complete your listing.</span>
+                            </li>
+					    </ol>
+					
+</div>
+					<div style="height:10px;"></div>
+					
+                    
+                        <div style="float:right;padding-bottom:15px;"> 
+                            <input onclick="document.getElementById('SelectLatLongMap_btnContinue').click(); return false;" type="image" class="addedit-footer-button" src="/images/buttons/btn_continue_blue.gif" alt="Save &amp; Continue" style="border-width:0px;" />
+                        </div>
+                    
+
+
+					
+					
+<!-- LN_VEMap -->
+
+<script>
+sMapInfoJSON = '{"MapCoordinateList":[{"CONF":false,"LNID":0,"LT":"","Latitude":44.075138092041,"Longitude":-92.5123748779297,"MapHotSpotLink":"javascript: void(0);","MapHotSpotTarget":"","PL":false,"SC":false}],"MapHeight":352,"MapWidth":483,"MinInitZoomLevel":13,"SymbolType":1}';</script>
+
+<script src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6.3" type="text/javascript" language="javascript"></script>
+<script src="//s.lnimg.com/xNet/MainSite/Scripts/Core/mainsite/listing/search/map/mapmanager.js" type="text/javascript"></script>
+<script src="//s.lnimg.com/xNet/MainSite/Scripts/Core/mainsite/usercontrols/common/vemap.js" type="text/javascript"></script>
+
+<link href="//s.lnimg.com/xNet/MainSite/Styles/mappin.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+	* html .showcasePin { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/imageshttp://s.lnimg.com/commSearch/pins/showcase.png", sizingMethod="crop"); }
+	* html a.VEAPI_Pushpin:hover .showcasePin { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/imageshttp://s.lnimg.com/commSearch/pins/showcase-hilite.png", sizingMethod="crop"); }
+
+	* html .pinBox.premiumPin { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://s.lnimg.com/images/commSearch/pins/property.png", sizingMethod="crop"); }
+	* html a.VEAPI_Pushpin:hover .pinBox.premiumPin { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://s.lnimg.com/images/commSearch/pins/property-hilite.png", sizingMethod="crop"); }
+
+	* html .pinBox.basicPin  { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://s.lnimg.com/images/commSearch/pins/property.png", sizingMethod="crop"); }
+	* html a.VEAPI_Pushpin:hover .pinBox.basicPin  { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://s.lnimg.com/images/commSearch/pins/property-hilite.png", sizingMethod="crop"); }
+
+	* html .pinBox.rsPin  { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://s.lnimg.com/images/commSearch/pins/rs-sub.png", sizingMethod="crop"); }
+	* html a.VEAPI_Pushpin:hover .pinBox.rsPin  { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://s.lnimg.com/images/commSearch/pins/rs-sub-hilite.png", sizingMethod="crop"); }
+
+	* html .pinBox.rs-subPin  { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://s.lnimg.com/images/commSearch/pins/rs-sub.png", sizingMethod="crop"); }
+	* html a.VEAPI_Pushpin:hover .pinBox.rs-subPin  { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://s.lnimg.com/images/commSearch/pins/rs-sub-hilite.png", sizingMethod="crop"); }
+
+	.pinBox.showcasePin { background: url(http://s.lnimg.com/images/commSearch/pins/showcase.png) no-repeat; }
+	a.VEAPI_Pushpin:hover .pinBox.showcasePin { background: url(http://s.lnimg.com/images/commSearch/pins/showcase-hilite.png) no-repeat; }
+    	
+	.pinBox.premiumPin { background: url(http://s.lnimg.com/images/commSearch/pins/property.png) no-repeat; }	
+	a.VEAPI_Pushpin:hover .pinBox.premiumPin { background: url(http://s.lnimg.com/images/commSearch/pins/property-hilite.png) no-repeat; }
+
+	.pinBox.basicPin { background: url(http://s.lnimg.com/images/commSearch/pins/property.png) no-repeat; }
+	a.VEAPI_Pushpin:hover .pinBox.basicPin { background: url(http://s.lnimg.com/images/commSearch/pins/property-hilite.png) no-repeat; }
+    	
+    .pinBox.rsPin { background: url(http://s.lnimg.com/images/commSearch/pins/rs-sub.png) no-repeat; }	
+    a.VEAPI_Pushpin:hover .pinBox.rsPin { background: url(http://s.lnimg.com/images/commSearch/pins/rs-sub-hilite.png) no-repeat; }
+
+    .pinBox.rs-subPin { background: url(http://s.lnimg.com/images/commSearch/pins/rs-sub.png) no-repeat; }
+    a.VEAPI_Pushpin:hover .pinBox.rs-subPin { background: url(http://s.lnimg.com/images/commSearch/pins/rs-sub-hilite.png) no-repeat; }
+
+    .printpin {display: none;}
+</style>
+
+<style type="text/css" media="print">
+    a img
+    {
+	    border: none !important;
+    }
+    #sw_page, #taskBar, #Wip, #msve_ScratchPad, #spMenuStrip, #MSVE_minimap, #MSVE_navAction_container, #msve_footer, #msve_mapResizer, #TaskHost_Directions_ButtonPanel, #TaskHost_Directions_RouteOptionsLabel, #TaskHost_DrivingDirections .stepsList .bullet, #TaskHost .searchResults li ul, #TaskHost .searchResults .c2c, #collMgmtDlg, #placeSearchBody, #TaskHost .VE_Panel_body h3, #TaskHost .ve_results input, .searchResults .ratings, .modifySearchLink, .ero, .MSVE_MapLegend, .MSVE_KeyboardInput, .MSVE_Copyright, .reverse, .routeOptions, .pl_shadow_wrapper, .disambgContainer, .suggestionMessage, .waypointActions, .VETask .toolbar, .pageList, .srfPnl, .itinerary .StartOnly, .itinerary .EndOnly, .VE_Pushpin_ad, .VE_AdPushpin_Category, .VE_AdPushpin_Standard, .VE_AdPushpin_Standard_White, .VE_AdPushpin_Standard_Overlay, .VE_AdPushpin_Wide, .VE_AdPushpin_Wide_White, .VE_AdPushpin_Wide_Overlay
+    {
+	    display: none !important;
+    }
+    .printpin {display: block !important;}
+</style>
+
+<input type="hidden" name="Latitude" />
+<input type="hidden" name="Longitude" />
+<input type="hidden" name="veCenterLat" />
+<input type="hidden" name="veCenterLong" />
+<input type="hidden" name="veCurrentZoom" />
+<input type="hidden" name="veCurrentStyle" />
+<input type="hidden" name="NECornerLatLong" />
+<input type="hidden" name="SWCornerLatLong" />
+<div id="MapHolder" style="position: relative;"></div>
+
+<!-- LN_VEMap End-->
+			</td>
+		</tr>
+	</table>
+</div>
+<!-- Footer -->
+<div class="addedit-section submit clearfix">
+	<div id="ContinueBtn">
+		<input src="/images/buttons/btn_continue_blue.gif" name="SelectLatLongMap$btnContinue" type="image" id="SelectLatLongMap_btnContinue" class="addedit-footer-button" alt="Save &amp; Continue" style="border-width:0px; padding:0;" />
+	</div>
+	<div id="PleaseWaitBtn" style="display:none;"> <img class="button blue large" alt="Please Wait..." /> </div>
+</div>
+<input name="SelectLatLongMap$UserClicked" type="hidden" id="SelectLatLongMap_UserClicked" />
+</div><!-- /.container -->
+        
+		<br />
+		
+</div>    
+
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<script type="text/javascript">
+	function CopyrightPopup(url,name,w,h) {
+		popup = window.open(url,name,"width="+ w +",height=" + h + ",top=50,left=50,toolbar=no,location=no,directories=no,status=no,scrollbars=auto,resizable=no,menubar=no,screenX=50,screenY=50");
+		// URL of popup window
+		popup.location.href = url;
+		if (popup.opener == null) popup.opener = window;
+	}
+function CurrentYear() {
+	var oDate = new Date()
+	return document.write(oDate.getFullYear())
+}
+</script>
+<script type="text/javascript">
+	function ShowPopup() {
+		jQuery("#universalFeedbackMaster").show();
+	}
+	function LogActionCode(actionCode)
+	{
+        //check if we have a queue we can use
+        if(jQuery.lnlogging) {
+            jQuery.lnlogging.LogActionCode({ ActionCode: actionCode });
+        }
+        else
+        {
+		    var RequestData = {"d":{"ActionCode":-2147483648,"ActionCodeList":null,"ActionCodeValue":"-2147483648","LinkCodeList":null,"PageGuid":"afc903c9-022d-43a0-9f15-df2b5f7df45e"},"r":{"cas":10,"ci":4,"fn":"Jabe","ln":"Kitson","pg":"afc903c9-022d-43a0-9f15-df2b5f7df45e","sg":"bb37484c-fa85-4c44-bf31-333cbb5109bf","sid":1,"ai":"Dlz1TRH9Q","si":"R2X7TzR3Q","f":2,"c":"I5316jP3A"},"o":null};
+
+		    RequestData.d.ActionCode = actionCode;
+
+		    jQuery.sendWCFRequest("/xNet/ExternalServices/Common/Logging.svc/UpdateActionCode", "POST", jQuery.toJSON(RequestData), null, null, null);
+        }
+	}
+</script>
+<!-- Holiday theme -->
+<script>
+    var logoEl = document.getElementById('logoMain');
+    if (logoEl != null) {
+        logoEl.style.backgroundImage="url('/images/logoHoliday.png')";
+    }
+</script>
+<!-- Start Footer -->
+<div class="Footer clearfix">
+	
+		<ul class="Left clearfix">
+			<li class="first contactUsFooter">
+		        
+                <span id="divSuggestionAnchorElement">
+                    <a href="http://www.loopnet.com/xNet/MainSite/Marketing/Contact/Contact.aspx?LinkCode=7040" id="Bottom1_SuggestionAnchorElement" title="Help us make LoopNet better. Tell us what you think!" rel="nofollow">
+                        <strong>Contact Us</strong>
+                    </a>
+                </span>
+			</li>
+		    <li><a href="http://www.loopnet.com/xNet/MainSite/Marketing/About/Help.aspx?linkcode=1230" title="Help" >Help</a></li>
+            <li><a href="http://www.loopnet.com/xNet/MainSite/Listing/Manage/?linkcode=13920" title="Add Listings" >Add Listings</a></li>	
+			<li><a href="http://www.loopnet.com/About-Us/?LinkCode=1200" title="About Us" >About Us</a></li>
+			<li><a href="http://www.loopnet.com/xNet/MainSite/Marketing/Products/default.aspx?LinkCode=7070" title="LoopNet Products &amp; Services" >Products</a></li>
+            <li><a href="http://www.loopnet.com/xNet/MainSite/Marketing/Advertising/" title="Advertise" >Advertise</a></li>
+			<li><a href="http://blog.loopnet.com/?LinkCode=29700" rel="nofollow" title="LoopNet Blog">Blog</a></li>
+			<li><a href="http://www.loopnet.com/xNet/MainSite/Marketing/About/TermsAndConditions.aspx?LinkCode=820" title="Terms &amp; Conditions" rel="nofollow">Terms Of Use</a></li>
+			<li><a href="http://www.loopnet.com/xNet/MainSite/Marketing/About/Privacy.aspx?LinkCode=830" title="Privacy Policy" rel="nofollow">Privacy Policy</a></li>
+		    <li class="last"><a style=" " href="javascript:CopyrightPopup('http://www.loopnet.com/xNet/MainSite/Copyright.aspx','LNCopyright','350','350')" title="&copy; 2014 LoopNet, Inc." rel="nofollow">&copy; <script type="text/javascript">CurrentYear()</script> LoopNet, Inc.</a></li>
+		</ul>
+		<ul class="Right clearfix">
+	        <li style="border-right: none;">Partners:</li>
+		    <li class="first"><a href="http://www.bizbuysell.com/" target="_blank" title="BizBuySell.com - Businesses for Sale and Franchise for Sale" >BizBuySell</a></li>
+            <li><a href="http://www.landandfarm.com/" target="_blank" title="LandAndFarm.com - Land, Farms and Ranches for Sale" >LandAndFarm</a></li>
+		    <li class="last"><a href="http://www.findafranchise.com/" target="_blank" title="FindaFranchise.com - Franchise Opportunities and Franchises for Sale" >FindaFranchise</a></li>
+	    </ul>
+	    <!-- Do not Remove this is so we can tell the length and with of the page -->
+		<table cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td align="right"><div id="LowerRightCornerDiv"></div></td>
+			</tr>
+		</table>
+	
+</div>
+<div class="trackingGoogleRevenue">
+<!-- Google Code for Buy Browsers Remarketing List -->
+    <script type="text/javascript">
+    // <![CDATA[
+        var google_conversion_id = 1071941806;
+        var google_conversion_language = "en";
+        var google_conversion_format = "3";
+        var google_conversion_color = "ffffff";
+        var google_conversion_label = "UCqmCKzD3AEQrpGS_wM";
+        var google_conversion_value = 0;
+    // ]]> 
+    </script>
+    <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+    </script>
+    </div>
+
+<!-- End Footer -->
+
+    
+<script>bPushPinOnClick = true;</script>
+<script type="text/javascript">
+//<![CDATA[
+var encAssocNF = 9299002020; var pageGUIDTop = 'afc903c9-022d-43a0-9f15-df2b5f7df45e';//]]>
+</script>
+</form>
+</body>
+</html>

@@ -17,7 +17,7 @@
     <div class='post-image-overlay'></div>
     <h1><a class='heading-text-color' href='/properties/<%=p.id.to_s%>'><%=p.title%></a></h1>
     <div class='content'>
-      <p><%=p.description%></p>
+      <p><%=p.description.truncate(310, :separator => ' ')%></p>
     </div>
     <div class='details'>
       <div class="info light">

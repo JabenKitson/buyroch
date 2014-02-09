@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :email, :password, :password_confirmation, :avatar, :name, :roles
+  permit_params :loopnet_logon, :loopnet_password, :mncar_logon,:mncar_password,:craigslist_logon,:craigslist_password,:email, :password, :password_confirmation, :avatar, :name, :roles
 
   index do
     column :email
@@ -19,7 +19,8 @@ ActiveAdmin.register User do
       f.input :password
       f.input :password_confirmation
       f.input :avatar
-      f.input :roles
+      f.input :loopnet_logon
+      f.input :loopnet_password
     end
     f.actions
   end
