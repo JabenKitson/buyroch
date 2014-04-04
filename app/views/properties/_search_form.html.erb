@@ -1,5 +1,5 @@
 <div id='searchContainer'>
-  <form id='map-page-form' class="custom form-search" action="/search" method="GET">
+  <form id='map-page-form' class="custom form-search" action="/searches/<%=@searchtype%>" method="GET">
   <div id='main-search'>
     <input type='submit' class='submit-search button-search' value='GO!'>
     <input type="text" name="query" class='main-search-field' value="<%= params[:query]%>" placeholder='Location, Options, Keywords?'>  </div>

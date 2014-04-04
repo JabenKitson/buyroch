@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204003412) do
+ActiveRecord::Schema.define(version: 20140404022650) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -55,6 +55,11 @@ ActiveRecord::Schema.define(version: 20140204003412) do
     t.float    "longitude"
     t.string   "address"
     t.integer  "user_id"
+    t.boolean  "unique_space"
+    t.string   "price_unit"
+    t.boolean  "lease"
+    t.integer  "sqrft"
+    t.boolean  "visible_on_buyroch"
   end
 
   create_table "users", force: true do |t|
@@ -82,6 +87,11 @@ ActiveRecord::Schema.define(version: 20140204003412) do
     t.string   "mncar_password"
     t.string   "craigslist_logon"
     t.string   "craigslist_password"
+    t.string   "facebook_url"
+    t.string   "linked_in_url"
+    t.string   "twitter_name"
+    t.string   "phone"
+    t.integer  "org_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
