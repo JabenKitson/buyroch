@@ -5,7 +5,6 @@ class PropertiesController < ApplicationController
       @id = params[:id]
       @status = @property.loopnet(current_user.loopnet_logon,current_user.loopnet_password)
       #redirect_to {:action => :show}
-
   end
 
   def show
