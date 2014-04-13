@@ -3,12 +3,13 @@ ActiveAdmin.register Property do
       f.semantic_errors :property
       f.inputs "Details" do
         f.input :title
-        f.input :price, :label => "Price per sqft"
-        f.input :price_unit, :label => "price unit (day, week, month)"
-        f.input :sqrft, :label => "Square Footage"
         f.input :lease, :label => "For Lease?"
         f.input :unique_space, :label => "Unique Space?"
         f.input :visible_on_buyroch, :label => "Make Available on BuyRoch?"
+        f.input :published
+        f.input :price, :label => "Price (per sqft if for lease)"
+        f.input :price_unit, :label => "price unit (day, week, month)"
+        f.input :sqrft, :label => "Square Footage"
       end
       f.inputs "Content" do
         f.input :description
@@ -73,11 +74,11 @@ ActiveAdmin.register Property do
   end
 
   def permitted_params
-   params.permit(:property => [:visible_on_buyroch, :lease, :price_unit, :sqrft, :unique_space ,:title, :price, :address, :description, :photo, attachments_attributes: [:picture]])
+   params.permit(:property => [:published, :visible_on_buyroch, :lease, :price_unit, :sqrft, :unique_space ,:title, :price, :address, :description, :photo, attachments_attributes: [:picture]])
   end
 
   def property_params
-  params.require(:property).permit(:visible_on_buyroch, :lease, :price_unit, :sqrft, :unique_space,:photo, :title, :description, :price, :address,  attachments_attributes: [:picture])
+  params.require(:property).permit(:published, :visible_on_buyroch, :lease, :price_unit, :sqrft, :unique_space,:photo, :title, :description, :price, :address,  attachments_attributes: [:picture])
   end
  end
 

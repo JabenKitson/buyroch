@@ -28,9 +28,12 @@ end
   def index
   	if params[:query]
     ss = "%#{params[:query]}%"
-  	  @properties = Property.where("address LIKE ? or title LIKE ? or description LIKE ?",ss,ss,ss)
+  	  @properties = Property.where("published = true and (unique_space != true or unique_space IS NULL)  and (address LIKE ? or title LIKE ? or description LIKE ?)",ss,ss,ss)
+    elsif params[:agent]
+      agent = params[:agent]
+      @properties = Property.joins(:user).where("(properties.unique_space != true or properties.unique_space IS NULL) and properties.published = true and users.email = ?",agent)
     else
-      @properties = Property.all
+      @properties = Property.where("(properties.unique_space != true or properties.unique_space IS NULL) and published = true")
     end
     
     respond_to do |format|
