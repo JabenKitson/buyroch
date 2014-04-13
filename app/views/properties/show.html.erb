@@ -16,6 +16,7 @@ $(document).ready(function(){
 				<div class='columns large-12 small-12 mb22'>
 					<div class="page-title">
 						<div class="section-title"><span class="flag"><img class='retina' width='18' height='18' src='<%=asset_path "home.png"%>' alt='Icon'/></span><h2><%=@property.title%></h2>
+						<p><%=@property.address%></p>
 						</div>						
 					</div>
 				
@@ -98,12 +99,22 @@ $(document).ready(function(){
 <div class='content'>
 
 <div>
+<p>
+Square Footage: <%=@property.sqrft%> sqft - 
+<%if @property.lease%>
+Price per sqft:
+<%else%>
+Asking Price:  
+<%end%>
+ $<%=@property.price%> 
+<%if @property.unique_space%>
+ per <%=@property.price_unit%>
+<%end%>
+</p>
 <h3>Description</h3>
 <p><%=@property.description%></p>
-<p><%=@property.sqrft%> square feet at $<%=@property.price%> per sqft
-<%if @property.lease%>
- per <%=@property.price_unit%><%end%>
-</p>
+
+
 </div>
 </div>
 </div>	

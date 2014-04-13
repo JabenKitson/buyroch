@@ -1,5 +1,8 @@
 ActiveAdmin.register Property do
-    form multipart: true do |f|
+    
+    form :partial => "form" #javascript in app/views/admin/posts/_form.html.erb
+
+     form multipart: true do |f|
       f.semantic_errors :property
       f.inputs "Details" do
         f.input :title
@@ -56,6 +59,21 @@ ActiveAdmin.register Property do
 
   end
 
+  def edit
+    @property = Property.find(params[:id])
+   # property_params.delete(:attachments_attributes) 
+    #params[:photo_file_name] = @property.photo_file_name
+    #6.times { @property.attachments.build } 
+
+  end
+
+  #def update
+   # property = Property.find(params[:id])
+    #if property_params.values_at(:attachments_attributes)[1] != "picture" then property_params.delete(:attachments_attributes) end
+    #property.update_attributes!(property_params)
+   # redirect_to '/' + property_params.keys.join("<=>")
+  #end
+
   def create
      @property = Property.new(property_params)
       @property.user_id = current_user.id
@@ -63,7 +81,7 @@ ActiveAdmin.register Property do
       Rails.logger.info("###DEBUG property.user_id :=> #{@property.user_id}")
         respond_to do |format|
          if @property.save
-           format.html { redirect_to @property, notice: 'Property was successfully created.' }
+           format.html { redirect_to '/admin/properties', notice: 'Property was successfully created.' }
            format.json { render action: 'show', status: :created, location: @post }
          else
            Rails.logger.info(@property.errors.inspect)
@@ -74,11 +92,11 @@ ActiveAdmin.register Property do
   end
 
   def permitted_params
-   params.permit(:property => [:published, :visible_on_buyroch, :lease, :price_unit, :sqrft, :unique_space ,:title, :price, :address, :description, :photo, attachments_attributes: [:picture]])
+   params.permit(:property => [:id, :published, :visible_on_buyroch, :lease, :price_unit, :sqrft, :unique_space ,:title, :price, :address, :description, :photo, :photo_file_name, :photo_file_size, :photo_updated_at, :photo_content_type, attachments_attributes: [:picture, :picture_file_name, :picture_file_size, :picture_updated_at, :picture_content_type]])
   end
 
   def property_params
-  params.require(:property).permit(:published, :visible_on_buyroch, :lease, :price_unit, :sqrft, :unique_space,:photo, :title, :description, :price, :address,  attachments_attributes: [:picture])
+  params.require(:property).permit(:published, :visible_on_buyroch, :lease, :price_unit, :sqrft, :unique_space,:photo, :title, :description, :price, :address) #,  attachments_attributes: [:picture])
   end
  end
 
