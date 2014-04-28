@@ -1,17 +1,18 @@
 ActiveAdmin.register Property do
     
-    form :partial => "form" #javascript in app/views/admin/posts/_form.html.erb
+    #form :partial => "form" #javascript in app/views/admin/posts/_form.html.erb
 
      form multipart: true do |f|
       f.semantic_errors :property
       f.inputs "Details" do
         f.input :title
+        f.input :forsale, :label => "For Sale?"
         f.input :lease, :label => "For Lease?"
         f.input :unique_space, :label => "Unique Space?"
-        f.input :visible_on_buyroch, :label => "Make Available on BuyRoch?"
-        f.input :published
-        f.input :price, :label => "Price (per sqft if for lease)"
-        f.input :price_unit, :label => "price unit (day, week, month)"
+        f.input :published, :label => "Display on your site?"
+        f.input :visible_on_buyroch, :label => "Display on BuyRoch?"
+        f.input :price, :label => "Asking Price"
+        f.input :price_unit, :label => "Price Unit (day, week, month)"
         f.input :sqrft, :label => "Square Footage"
       end
       f.inputs "Content" do
@@ -61,18 +62,13 @@ ActiveAdmin.register Property do
 
   def edit
     @property = Property.find(params[:id])
-   # property_params.delete(:attachments_attributes) 
-    #params[:photo_file_name] = @property.photo_file_name
-    #6.times { @property.attachments.build } 
+    # property_params.delete(:attachments_attributes) 
+    # params[:photo_file_name] = @property.photo_file_name
+    # 6.times { @property.attachments.build } 
 
   end
 
-  #def update
-   # property = Property.find(params[:id])
-    #if property_params.values_at(:attachments_attributes)[1] != "picture" then property_params.delete(:attachments_attributes) end
-    #property.update_attributes!(property_params)
-   # redirect_to '/' + property_params.keys.join("<=>")
-  #end
+
 
   def create
      @property = Property.new(property_params)
@@ -92,11 +88,11 @@ ActiveAdmin.register Property do
   end
 
   def permitted_params
-   params.permit(:property => [:id, :published, :visible_on_buyroch, :lease, :price_unit, :sqrft, :unique_space ,:title, :price, :address, :description, :photo, :photo_file_name, :photo_file_size, :photo_updated_at, :photo_content_type, attachments_attributes: [:picture, :picture_file_name, :picture_file_size, :picture_updated_at, :picture_content_type]])
+   params.permit(:property => [:id, :published, :visible_on_buyroch, :lease, :price_unit, :sqrft, :unique_space ,:title, :price, :address, :description, :photo, attachments_attributes: [:id, :picture, :_destroy]])
   end
 
   def property_params
-  params.require(:property).permit(:published, :visible_on_buyroch, :lease, :price_unit, :sqrft, :unique_space,:photo, :title, :description, :price, :address) #,  attachments_attributes: [:picture])
+  params.require(:property).permit(:id, :published, :visible_on_buyroch, :lease, :price_unit, :sqrft, :unique_space,:photo, :title, :description, :price, :address, attachments_attributes: [:id, :picture, :_destroy])
   end
  end
 

@@ -10,7 +10,7 @@ class Property < ActiveRecord::Base
   after_validation :geocode
   belongs_to :user
 
-  accepts_nested_attributes_for :attachments
+  accepts_nested_attributes_for :attachments, :allow_destroy => true
 
   def loopnet(login,pwd)
   	session = Loopnet.new(login,pwd)

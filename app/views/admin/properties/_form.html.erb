@@ -1,12 +1,16 @@
 <script type="text/javascript">     
     $(function(){
-        $('#your_model_role').change(function() {
-           
+        $('#property_lease_input').change(function() {
+           $('#property_unique_space_input').toggle();
+        });
+
+        $('#property_unique_space_input').change(function() {
+          $('#property_price_unit_input').toggle(); 
         });
 
     });
    $(document).ready ( function(){
-   alert('ok')
+  // alert('ok')
    
 });​
 
