@@ -14,15 +14,19 @@
        });
 
      $('#property_visible_on_buyroch').change(function() {
-          update_visible_on_buyroch();
+          update_published();
+       });
+
+     $('#property_published').change(function() {
+          update_published();
        });
        
 
     init_checkboxes();
     });
 
-    function update_visible_on_buyroch(){
-    	if ($('#property_visible_on_buyroch).prop("checked"))
+    function update_published(){
+    	if ($('#property_visible_on_buyroch').prop("checked"))
     	   {
     	   	$('#property_published').prop("checked",true);
 
