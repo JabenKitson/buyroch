@@ -12,10 +12,23 @@
      $('#property_unique_space_input').change(function() {
           update_property_price_unit();
        });
+
+     $('#property_visible_on_buyroch').change(function() {
+          update_visible_on_buyroch();
+       });
        
 
     init_checkboxes();
     });
+
+    function update_visible_on_buyroch(){
+    	if ($('#property_visible_on_buyroch).prop("checked"))
+    	   {
+    	   	$('#property_published').prop("checked",true);
+
+          }
+
+    }
 
     function update_price_label(){
     	

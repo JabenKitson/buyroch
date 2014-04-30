@@ -9,7 +9,7 @@ ActiveAdmin.register Property do
         f.input :forsale, :label => "For Sale?"
         f.input :lease, :label => "For Lease?"
         f.input :unique_space, :label => "Unique Space?"
-        f.input :published, :label => "Display on your site?"
+        f.input :published, :label => "Enable? (allows display on your site)"
         f.input :visible_on_buyroch, :label => "Display on BuyRoch?"
         f.input :price, :label => "Asking Price"
         f.input :price_unit, :label => "Price Unit (day, week, month)"
